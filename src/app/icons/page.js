@@ -6,7 +6,7 @@ import SidebarFilter from "../components/SidebarFilter";
 import Footer from "../components/Footer";
 
 
-export default function Listing() {
+export default function Icons() {
   const [icons, setIcons] = useState([]);
 
   useEffect(() => {
