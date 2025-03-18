@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Form from 'next/form';
-import Searchall from "./Searchall";
 
 
 function NavicationSubpage(){
@@ -21,7 +20,7 @@ function NavicationSubpage(){
                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="serach-div-home d-inlin-block ms-5">
-                     <Searchall/>
+                    
                     
                 </div>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">

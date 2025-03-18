@@ -11,8 +11,6 @@ export default function Searchall() {
   const handleSearch = (e) => {
     e.preventDefault();
     if (!query.trim()) return;
-
-    // Redirects to results page with search query in URL
     router.push(`search?search=${encodeURIComponent(query)}`);
   };
 

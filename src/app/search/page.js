@@ -4,7 +4,6 @@ import { useSearchParams } from "next/navigation";
 import Head from "next/head";
 import NavicationSubpage from "../components/NavicationSubpage";
 import Footer from "../components/Footer";
-import Searchall from "../components/Searchall";
 import SidebarFilter from "../components/SidebarFilter";
 
 export default function NewSearchResults() {
