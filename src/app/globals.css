@@ -161,6 +161,47 @@ a {
   padding-left: 1.8rem;
   padding-right: 1.4rem;
 }
+.btn-next{
+  background: var(--primaycolor) !important;
+  color: var(--background) !important;
+  border-radius: 6px !important;
+  padding: 0 30px !important;
+  height: 44px;
+  font-weight: 600;
+  font-size: 16px !important;
+  transition: all 0.5s;
+}
+.btn-next:hover{
+  background: var(--foreground) !important;
+}
+.btn-next svg,
+.btn-pre svg{
+  width: 20px;
+  height: 20px;
+}
+.btn-next svg{
+  margin-left: 8px;
+}
+.btn-pre svg{
+  margin-right: 8px;
+}
+.btn-pre{
+  border-radius: 6px !important;
+  padding: 0 30px !important;
+  height: 44px;
+  font-weight: 600;
+  transition: all 0.5s;
+  font-size: 16px !important;
+  color: #424242 !important;
+  box-shadow: inset 0 0 0 2px #d8d8d8 !important;
+  margin-right: 18px;
+  transition: all 0.5s;
+}
+.btn-pre:hover{
+  background: var(--foreground) !important;
+  box-shadow: inset 0 0 0 2px var(--foreground) !important;
+  color: var(--background) !important;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

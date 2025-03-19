@@ -7,7 +7,6 @@ import Form from "next/form";
 export default function Searchall() {
   const [query, setQuery] = useState("");
   const router = useRouter();
-
   const handleSearch = (e) => {
     e.preventDefault();
     if (!query.trim()) return;
