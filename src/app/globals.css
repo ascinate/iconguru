@@ -90,9 +90,16 @@ a {
 }
 .cmout label{
    cursor: pointer;
+   display: flex;
+   align-items: center;
 }
 .cmout label span{
-
+  width: 28px;
+  display: inline-block;
+}
+.cmout label span img{
+  width: 23px;
+  height: 23px;
 }
 /* listings */
 .search_heading{
@@ -237,12 +244,12 @@ a {
 }
 .icons-list span{
   display: inline-block;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 .icons-list span svg{
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 .btn-load-more{
   text-decoration: underline !important;
@@ -315,5 +322,11 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media (width >= 1200px) {
+  .main-divs .tab-content .row-cols-xl-6 > * {
+      width: 13.6667%;
   }
 }
