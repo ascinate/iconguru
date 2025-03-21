@@ -77,28 +77,37 @@ a {
 
 .cmout{
    border-radius: 10px;
-   border: 2px solid #f4f4f4;
+   border: 1px solid #e5e5e5;
    padding: 5px 15px 8px 15px !important;
    margin-right: 11px;
    margin-bottom: 13px;
    cursor: pointer;
+   margin-bottom: 11px !important;
+   transition: all 0.5s;
+}
+.cmout:hover{
+  border-color:#929292 !important;
 }
 .cmout label{
    cursor: pointer;
+}
+.cmout label span{
+
 }
 /* listings */
 .search_heading{
   font-weight: 600;
   color: var(--tabs-active-color);
+  font-size: 20px;
 }
 .tabsd_divs .nav-link{
-  font-weight: 400;
-  color: #B0A0A0;
+  font-weight: 500;
+  color: #424242 !important;
   font-size: 18px;
 }
 .tabsd_divs .nav-tabs .nav-item.show .nav-link, 
 .tabsd_divs .nav-tabs .nav-link.active{
-  color: var(--tabs-active-color);
+  color: var(--tabs-active-color) !important;
   font-weight: 600;
   border: none;
 }
@@ -201,6 +210,107 @@ a {
   background: var(--foreground) !important;
   box-shadow: inset 0 0 0 2px var(--foreground) !important;
   color: var(--background) !important;
+}
+.icons-list{
+  position: relative;
+}
+.icons-list::before{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  background-color: hsla(0, 0%, 89.8%, .8);
+  content: "";
+  width: 100%;
+  opacity: 0;
+  transform: translate(0);
+  transition: all 0.5s;
+  height: 100%;
+}
+.svg-item:hover .icons-list::before{
+   transform: scale(1);
+   opacity: 1;
+
+}
+.icons-list:focus{
+  box-shadow: none !important;
+}
+.icons-list span{
+  display: inline-block;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.icons-list span svg{
+  width: 60px;
+  height: 60px;
+}
+.btn-load-more{
+  text-decoration: underline !important;
+  font-size: 14px;
+}
+.svg-item{
+  display: grid;
+}
+.hover-divs {
+  position: absolute;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  top: 15px;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.svg-item:hover .hover-divs{
+  opacity: 1;
+}
+.btn-adds{
+  background: #fff !important;
+  border-radius: 8px !important;
+  padding-top: 5px !important;
+  padding-bottom: 8px !important;
+}
+.btn-downloads{
+  background: var(--primaycolor) !important;
+  border-radius: 8px !important;
+  margin-top: 10px;
+  padding-top: 5px !important;
+  padding-bottom: 8px !important;
+}
+.btn-adds svg,
+.btn-downloads svg{
+  width: 20px;
+  height: 20px;
+}
+.btn-adds:focus,
+.btn-downloads:focus{
+  box-shadow: none !important;
+}
+.main-divs .nav-tabs .nav-link{
+  position: relative;
+}
+.main-divs .nav-tabs .nav-link::before{
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--foreground);
+  opacity: 0;
+  transition: all 0.5s;
+  content: "";
+}
+.main-divs .nav-tabs .nav-link:focus, 
+.main-divs .nav-tabs .nav-link:hover{
+  border-color: transparent !important;
+}
+.main-divs .tabsd_divs .nav-tabs .nav-item.show .nav-link, 
+.main-divs .tabsd_divs .nav-tabs .nav-link.active{
+  
+}
+.main-divs .nav-tabs .active::before{
+  opacity: 1;
 }
 @media (prefers-color-scheme: dark) {
   html {

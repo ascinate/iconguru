@@ -34,12 +34,6 @@ export default function Icons() {
       </Head>
        <NavicationSubpage/>
         <main className="conatiner-fluid">
-            {/* {posts.map((post) => (
-              <div key={post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.body}</p>
-              </div>
-            ))} */}
             <div className="row">
                 <div className="col-lg-3">
                     <SidebarFilter/>
@@ -49,7 +43,7 @@ export default function Icons() {
                         <div className="tabsd_divs d-inline-block w-100 mt-3 ps-lg-3">
                             <ul className="nav nav-tabs" role="tablist">
                               <li className="nav-item" role="presentation">
-                                <button className="nav-link active" 
+                                <button className="nav-link active ps-0" 
                                 data-bs-toggle="tab" data-bs-target="#icons1" type="button" role="tab" aria-controls="icons1"
                                   aria-selected="true">Icons</button>
                               </li>
@@ -66,18 +60,26 @@ export default function Icons() {
                             <div className="tab-content" id="myTabContent">
                               <div className="tab-pane fade show active" id="icons1" role="tabpanel" aria-labelledby="icons1-tab">
                                   <h4 className="search_heading mt-3"> 2,550 Bag Icons </h4>
-                                  <div className="row row-cols-1 row-cols-lg-6 gy-4 g-lg-4 mt-0">
+                                  <div className="row row-cols-1  row-cols-lg-6 row-cols-xl-6 gy-2 g-lg-2 mt-0">
                                       
                                      
                                       {icons.length === 0 ? (
                                             <p>Icons Coming.</p>
                                           ) : (
                                             icons.map((icon) => (
-                                            <div key={icon.id} className="svg-item col" >
-                                                <button className="btn p-0" data-bs-toggle="modal" data-bs-target="#modaldetails"> 
+                                            <article key={icon.id} className="svg-item col position-relative">
+                                                <button className="btn icons-list p-0" data-bs-toggle="modal" data-bs-target="#modaldetails"> 
                                                    <span dangerouslySetInnerHTML={{ __html: icon.icon_svg }}></span>
                                                 </button>
-                                            </div>
+                                                <div className="hover-divs">
+                                                    <button type="button" className="btn btn-adds">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(67,67,67,1)"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
+                                                    </button>
+                                                    <button type="button" className="btn btn-downloads">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(255,255,255,1)"><path d="M13 10H18L12 16L6 10H11V3H13V10ZM4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19Z"></path></svg>
+                                                    </button>
+                                                </div>
+                                            </article>
                                             ))
                                           )}
                                       
