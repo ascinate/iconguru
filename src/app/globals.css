@@ -221,6 +221,7 @@ a {
 }
 .icons-list{
   position: relative;
+  min-height: 130px;
 }
 .icons-list::before{
   position: absolute;
@@ -287,8 +288,8 @@ a {
 }
 .btn-adds svg,
 .btn-downloads svg{
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
 }
 .btn-adds:focus,
 .btn-downloads:focus{

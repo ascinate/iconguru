@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FilterIcons from "./FilterIcons";
-import { useEffect,useState } from "react";
+import { useEffect,useState, useRef } from "react";
+import html2canvas from 'html2canvas';
 
 
 
@@ -11,7 +12,58 @@ function DetailsIcons() {
       const handleSelectChange = (event) => {
         setSelectedOption(event.target.value);
       };
-      
+
+      const svgRef = useRef(null);
+
+      // Convert canvas to PNG
+      const handleDownload = () => {
+        if (svgRef.current) {
+          html2canvas(svgRef.current, {
+            backgroundColor: null,
+          }).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+    
+            const link = document.createElement('a');
+            link.href = imgData;
+            link.download = 'image.png'; 
+            link.click();
+          });
+        }
+      };
+
+      // Convert canvas to Webp
+
+      const handleDownloadWeb = () => {
+        if (svgRef.current) {
+          html2canvas(svgRef.current, {
+            backgroundColor: null,
+          }).then((canvas) => {
+            const imgData = canvas.toDataURL('image/webp', 0.8);
+    
+            const link = document.createElement('a');
+            link.href = imgData;
+            link.download = 'image.webp';
+            link.click();
+          });
+        }
+      };
+
+      // Convert canvas to Svg
+
+      const handleDownloadSvg = () => {
+        // Define your SVG code as a string (this can be customized)
+        const svgCode = `
+          <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer transition-all duration-300" viewBox="0 0 24 24" fill={color}><path d="M12 13H4V11H12V4L20 12L12 20V13Z"></path></svg>
+        `;
+    
+        const blob = new Blob([svgCode], { type: 'image/svg+xml' });
+ 
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'image.svg';
+        link.click(); 
+      };
+
       useEffect(() => {
         const fetchIcons = async () => {
           try {
@@ -40,8 +92,11 @@ function DetailsIcons() {
              <div className="row">
                  <div className="col-lg-7">
                     <div className="blox-icons-div01">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer transition-all duration-300" viewBox="0 0 24 24" fill={color}><path d="M12 13H4V11H12V4L20 12L12 20V13Z"></path></svg>
-                    <input
+                        <div ref={svgRef}>
+                           <svg xmlns="http://www.w3.org/2000/svg" className="cursor-pointer transition-all duration-300" viewBox="0 0 24 24" fill={color}><path d="M12 13H4V11H12V4L20 12L12 20V13Z"></path></svg>
+                        </div>
+                    
+                        <input
                             type="color"
                             value={color}
                             onChange={(e) => setColor(e.target.value)}
@@ -66,10 +121,9 @@ function DetailsIcons() {
                                     <option value="elderberry">Elderberry</option>
                                 </select>
                             </div>
-                            <button type="button" className="btn btn-comons01"> GIF </button>
-                            <button type="button" className="btn btn-comons01"> JPEG </button>
-                            <button type="button" className="btn btn-comons01"> PNG </button>
-                            <button type="button" className="btn btn-comons01"> WEBP </button>
+                            <button type="button" onClick={handleDownloadSvg} className="btn btn-comons01"> SVG </button>
+                            <button type="button" onClick={handleDownload} className="btn btn-comons01"> PNG </button>
+                            <button type="button" onClick={handleDownloadWeb} className="btn btn-comons01"> WEBP </button>
                         </div>
                         <button type="button" className="btn btn mt-4"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="rgba(0,0,0,1)"><path d="M13.5759 17.2714L8.46576 14.484C7.83312 15.112 6.96187 15.5 6 15.5C4.067 15.5 2.5 13.933 2.5 12C2.5 10.067 4.067 8.5 6 8.5C6.96181 8.5 7.83301 8.88796 8.46564 9.51593L13.5759 6.72855C13.5262 6.49354 13.5 6.24983 13.5 6C13.5 4.067 15.067 2.5 17 2.5C18.933 2.5 20.5 4.067 20.5 6C20.5 7.933 18.933 9.5 17 9.5C16.0381 9.5 15.1669 9.11201 14.5343 8.48399L9.42404 11.2713C9.47382 11.5064 9.5 11.7501 9.5 12C9.5 12.2498 9.47383 12.4935 9.42408 12.7285L14.5343 15.516C15.167 14.888 16.0382 14.5 17 14.5C18.933 14.5 20.5 16.067 20.5 18C20.5 19.933 18.933 21.5 17 21.5C15.067 21.5 13.5 19.933 13.5 18C13.5 17.7502 13.5262 17.5064 13.5759 17.2714Z"></path></svg> Share </button>
 
