@@ -133,7 +133,7 @@ function DetailsIcons() {
                             </div>
                             <div type="button" className="btn w-100 btn-comons01"> SIZE 
                                 <select id="size" value={size} onChange={handleSizeChange}>
-                                    <option value="">-- Select a fruit --</option>
+                                    <option value="">-- Select a Size --</option>
                                     <option value="12">12px</option>
                                     <option value="16">16px</option>
                                     <option value="18">18px</option>
