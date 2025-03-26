@@ -613,6 +613,13 @@ footer hr{
   margin-left: auto;
   right:20%;
 }
+.loading-animations{
+  background: #eff3f6;
+  width: 100%;
+  display: inline-block;
+  min-height: 130px;
+  border-radius: 8px;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

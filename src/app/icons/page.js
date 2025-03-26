@@ -5,6 +5,7 @@ import { useEffect,useState } from "react";
 import SidebarFilter from "../components/SidebarFilter";
 import Footer from "../components/Footer";
 import DetailsIcons from "../components/DetailsIcons";
+import Image from "next/image";
 
 export default function Icons() {
   const [icons, setIcons] = useState([]);
@@ -64,7 +65,15 @@ export default function Icons() {
                                       
                                      
                                       {icons.length === 0 ? (
-                                            <p>Icons Coming.</p>
+                                            <div className="col">
+                                               <div className="loading-animations">
+                                                    <Image loading="lazy" src="/Spinner@1x-1.0s-200px-200px.gif"
+                                                              alt="iconsguru"
+                                                              width={200}
+                                                              height={200} />
+                                               </div>
+                                            </div>
+                                            
                                           ) : (
                                             icons.map((icon) => (
                                             <article key={icon.id} className="svg-item col position-relative">
