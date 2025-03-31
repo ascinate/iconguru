@@ -1,24 +1,38 @@
-import { Geist, Geist_Mono, Sora } from "next/font/google";
+import { Sora, Play, Playfair, Inter } from "next/font/google";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ImportBsJS from "../app/components/ImportBsJS";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const sorasans = Sora({
   variable: "--font-sora-sans",
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
 });
+
+const play = Play({
+  variable: "--font-play-sans",
+  weight: ['700'],
+  subsets: ['latin'],
+});
+
+const playfa = Playfair({
+  variable: "--font-playfa-sans",
+  weight: ['400'],
+  subsets: ['latin'],
+});
+
+const inter = Inter({
+  variable: "--font-inter-sans",
+  weight: ['800'],
+  subsets: ['latin'],
+});
+
+
+
+
+
+
 
 export const metadata = {
   title: "Create Next App",
@@ -30,7 +44,7 @@ export default function RootLayout({ children }) {
     
     <html lang="en">
       
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body>
       <style>{`
         html {
           font-family: ${sorasans.style.fontFamily};
@@ -39,11 +53,26 @@ export default function RootLayout({ children }) {
          font-family: ${sorasans.style.fontFamily};
         }
         button{
-         font-family: ${sorasans.style.fontFamily};
+         font-family: ${inter.style.fontFamily};
         } 
-        a, p, input{
+        input{
          font-family: ${sorasans.style.fontFamily};
         }
+         h5.sub-headings{
+           font-family: ${play.style.fontFamily};
+         }
+        p.text-para1{
+          font-family: ${playfa.style.fontFamily};
+        }
+        h2.comon-head,
+        .comon-types01 h5 a,
+        .coun-text,
+        .btn,
+        p,
+        h5{
+          font-family: ${inter.style.fontFamily};
+        }
+         
         
       `}
     </style>
