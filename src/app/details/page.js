@@ -198,11 +198,7 @@ function Details() {
                                   </div>
                                   <div className="d-flex align-items-center justify-content-between w-100">
                                      <div className="cd-svg">
-                                        <pre className="m-0">
-                                          <code className="m-0">
-                                            &lt;h1 id="title"&gt;Project form&lt;/h1&gt;
-                                          </code>
-                                        </pre>
+                                        
                                      </div>
                                     
                                      <button type="button" className="btn btn-copy01 ms-2"> Copy SVGcode </button>
