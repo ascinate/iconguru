@@ -1,10 +1,11 @@
 "use client"
 import Head from "next/head";
-import NavicationSubpage from "../components/NavicationSubpage";
+import NavicationHome from "../components/NavicationHome";
 import { useEffect,useState } from "react";
 import SidebarFilter from "../components/SidebarFilter";
 import Footer from "../components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Icons() {
   const [icons, setIcons] = useState([]);
@@ -32,15 +33,26 @@ export default function Icons() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-       <NavicationSubpage/>
-        <main className="conatiner-fluid">
+       <NavicationHome/>
+        <main className="listing-pages floate-start w-100">
+          <div className="container">
             <div className="row">
                 <div className="col-lg-3">
                     <SidebarFilter/>
                 </div>
-                <div className="col-lg-9">
-                    <div className="main-divs g-col-6">
-                        <div className="tabsd_divs d-inline-block w-100 mt-3 ps-lg-3">
+                <div className="col-lg-9 ps-lg-4">
+                    <div className="main-divs g-col-6 ">
+                        <h2 className="search-listings01"> Music icons  </h2>
+                        <p> Showing <strong className="serch-data"> 24,871 </strong> Icons  </p>
+
+                        <div className="ser-listu-lis">
+                          <div className="search-sections-home my-4 d-flex justify-content-between align-items-center bg-white">
+                              <input type="search" className="form-control" placeholder="Search icons..."/>
+                              <button className="btn btn-search"> Search <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,1)"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg> </button>
+                          </div>
+                        </div>
+
+                        <div className="tabsd_divs d-inline-block w-100 mt-2">
                             <ul className="nav nav-tabs" role="tablist">
                               <li className="nav-item" role="presentation">
                                 <button className="nav-link active ps-0" 
@@ -59,7 +71,7 @@ export default function Icons() {
                             </ul>
                             <div className="tab-content" id="myTabContent">
                               <div className="tab-pane fade show active" id="icons1" role="tabpanel" aria-labelledby="icons1-tab">
-                                  <h4 className="search_heading mt-3"> 2,550 Bag Icons </h4>
+                                  
                                   <div className="row row-cols-1  row-cols-lg-6 row-cols-xl-6 gy-2 g-lg-2 mt-0">
                                       
                                      
@@ -76,9 +88,9 @@ export default function Icons() {
                                           ) : (
                                             icons.map((icon) => (
                                             <article key={icon.id} className="svg-item col position-relative">
-                                                <button className="btn icons-list p-0" data-bs-toggle="modal" data-bs-target="#modaldetails"> 
+                                                <Link href="/details" className="btn icons-list p-0"> 
                                                    <span dangerouslySetInnerHTML={{ __html: icon.icon_svg }}></span>
-                                                </button>
+                                                </Link>
                                                 <div className="hover-divs">
                                                     <button type="button" className="btn btn-adds">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(67,67,67,1)"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
@@ -110,7 +122,7 @@ export default function Icons() {
                                   </div>
                               </div>
                               <div className="tab-pane fade" id="interface" role="tabpanel" aria-labelledby="interface-tab">
-                                  <h4 className="search_heading mt-3"> 2,550 Interface Bag Icons </h4>
+                                  
                                   <div className="row row-cols-1 row-cols-lg-6 gy-4 g-lg-4 mt-0">
                                      
                 
@@ -122,6 +134,7 @@ export default function Icons() {
                     </div>
                 </div>
             </div>
+          </div>
         </main>
 
 

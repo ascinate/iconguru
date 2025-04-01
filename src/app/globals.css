@@ -840,6 +840,16 @@ footer hr{
   background: var(--head-color) !important;
   color: var(--background) !important;
 }
+.listing-pages{
+  padding-top: 120px;
+}
+.search-listings01{
+  color: var(--head-color);
+}
+.serch-data{
+  color: var(--head-color);
+  font-weight: 700;
+}
 @media (width >= 1200px) {
   .comon-rows .row > div.col {
       flex: none;
