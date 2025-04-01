@@ -725,7 +725,7 @@ footer hr{
 }
 .blox-icons-div01{
   background: #F3F3F4;
-  padding: 25px;
+  padding:40px 25px;
 }
 .svgimg01{
   text-align: center;
@@ -741,10 +741,117 @@ footer hr{
   width: 90%;
 }
 .comon-groups-div01{
-  margin-bottom: 15px;
+  margin-bottom: 23px;
 }
 .svg-codeoff{
   visibility:hidden;
+}
+.svg-lisuy{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:0;
+}
+.blox-icons-div01{
+  position: relative;
+  z-index: 2;
+}
+.btn-copy01{
+  background: var(--head-color) !important;
+  color: var(--background) !important;
+  padding: 10px 30px !important;
+}
+.crm-btn01{
+  margin-right: 0;
+  border: 2px solid #f3f3f3 !important;
+  width: 89px;
+}
+.style-list{
+  font-size: 17px;
+}
+.style-list svg{
+  width: 30px;
+  height: 30px;
+}
+.svgimg01 svg{
+  width: 250px;
+  height: 250px;
+}
+.svgimg02{
+  text-align: center;
+}
+.icn-list05{
+  position: absolute;
+  top:20px;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+}
+.icn-list05 .form-control{
+  padding: 0;
+  border-radius: 50px;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+}
+.icn-list05 .form-control:focus{
+  box-shadow: none !important;
+}
+.btn-comons01:focus,
+.btn-comons01:active{
+  box-shadow: none !important;
+  background: var(--head-color) !important;
+  color: var(--background) !important;
+  border-radius: 5px !important;
+}
+.styles-icons-div{
+  margin-top: 100px;
+}
+.styles-icons-div h4{
+  font-size: 19px;
+  color: var(--head-color);
+}
+.comon-rows .svg-item .btn{
+  margin: auto;
+  display: block;
+  margin-bottom: 50px;
+}
+.comon-rows .svg-item .btn:focus{
+  box-shadow: none;
+}
+.sub-titels-h1{
+  border-bottom: solid 1px #E8E8E8;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+.crm-tagsd{
+  list-style-type: none;
+}
+.crm-tagsd .btn{
+  background: #F3F3F4 !important;
+  font-size: 14px;
+  margin-right: 12px;
+  border-radius: 5px;
+  padding: 9px 20px;
+  transition: all 0.5s;
+}
+.crm-tagsd .btn:hover{
+  background: var(--head-color) !important;
+  color: var(--background) !important;
+}
+@media (width >= 1200px) {
+  .comon-rows .row > div.col {
+      flex: none;
+      width: 9.6667% !important;
+  }
+  .comon-rows .svg-item svg{
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    display: block;
+    text-align: center;
+  }
 }
 @media (prefers-color-scheme: dark) {
   html {

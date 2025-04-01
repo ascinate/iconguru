@@ -70,7 +70,8 @@ export default function RootLayout({ children }) {
         .btn,
         p,
         h5,
-        .icon-headings{
+        .icon-headings,
+        .styles-icons-div h4{
           font-family: ${inter.style.fontFamily};
         }
          
