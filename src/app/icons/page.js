@@ -4,7 +4,6 @@ import NavicationSubpage from "../components/NavicationSubpage";
 import { useEffect,useState } from "react";
 import SidebarFilter from "../components/SidebarFilter";
 import Footer from "../components/Footer";
-import DetailsIcons from "../components/DetailsIcons";
 import Image from "next/image";
 
 export default function Icons() {
@@ -136,7 +135,7 @@ export default function Icons() {
               </div>
               <div className="modal-body">
                    <h2> Details </h2>
-                   <DetailsIcons/>
+                  
               </div>
             
             </div>
