@@ -11,15 +11,27 @@ export default function Home() {
     { id: 1, title: 'Interface Essential' , counting: '200', tag:"", img: '/interface.svg', link: '/icons'  },
     { id: 2, title: 'Design' , counting: '100', tag:"New", img: '/design-th1.svg', link: '/icons'  },
     { id: 3, title: 'Food' , counting: '300', tag:"", img: '/food-th.svg', link: '/icons'  },
-    { id: 4, title: 'Social' , counting: '2000', tag:"", img: '/tine.png', link: '/icons'  },
+    { id: 4, title: 'Social' , counting: '2000', tag:"", img: '/social.svg', link: '/icons'  },
+    { id: 5, title: 'Business' , counting: '1000', tag:"", img: '/business.svg', link: '/icons'  },
+    { id: 6, title: 'Shopping' , counting: '1000', tag:"", img: '/shopping1.svg', link: '/icons'  },
   ];
+
+  const categorytypes = [
+    { id: 1, title: 'Solid' , counting: '200', tag:"", img: '/jb-white-1.svg', link: '/icons'  },
+    { id: 2, title: 'Regular' , counting: '100', tag:"New", img: '/design-th1.svg', link: '/icons'  },
+    { id: 3, title: 'Bold' , counting: '300', tag:"", img: '/food-th.svg', link: '/icons'  },
+    { id: 4, title: 'Color' , counting: '2000', tag:"", img: '/color-new22.svg', link: '/icons'  },
+    { id: 5, title: 'Color' , counting: '1000', tag:"", img: '/business.svg', link: '/icons'  },
+    { id: 6, title: 'Animation' , counting: '1000', tag:"", img: '/shopping1.svg', link: '/icons'  },
+  ];
+  
   return (
     <>
    <NavicationHome/>
    <BannerHome/>
 
    <main className="float-start w-100 main-body">
-         <section className="float-start about-sections w-100">
+         <section className="float-start about-sections comon-short-parts w-100">
              <aside className="container">
                  <div className="row row-cols-1 row-cols-lg-2 align-items-center">
                     <div className="col">
@@ -27,6 +39,7 @@ export default function Home() {
                           <h2 className="comon-head"> Your workflow <span className="d-lg-block"> been never so fast </span> </h2>
                           <p className="col-lg-8 mt-2"> We’ve developed from scratch our tools to browse, customize and quickly use our assets. Drop our icons and. </p>
                           <Link href='/' className="btn btn-expolre mt-3"> Explore now </Link>
+                          
                        </div>
                     </div>
                     <div className="col">
@@ -79,7 +92,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section className="float-start about-sections w-100">
+         <section className="float-start about-sections comon-short-parts w-100">
              <aside className="container">
                  <div className="row row-cols-1 row-cols-lg-2 align-items-center">
                     <div className="col">
@@ -138,112 +151,83 @@ export default function Home() {
              </aside>
          </section>
 
-          <section className="float-start incons-types-sections w-100">
-             <aside className="container">
-                <div className="row g-lg-0 justify-content-between w-100 align-items-center">
-                    <div className="col-lg-9">
-                        <h3 className="page-headings01"> The Most Wanted Free SVG User  Interface Icons </h3>
-                    </div>
-                    <div className="col-lg-3 d-grid justify-content-lg-end">
-                      <Link className="btn btn-all-links p-0" href='/icons'> All Free SVG Icons 
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                          </svg>            
-                      </Link>
-                    </div>
-                </div>
-                <div className="row row-cols-1 row-cols-lg-4 gy-4 g-lg-4 mt-2">
+         <section className="float-start w-100 comon-short-parts types-catg-sections">
+             <div className="container">
+                <h2 className="text-center comon-head"> Featured premium icon sets </h2>
+                <p className="text-center"> Download the perfection and largest unique icons drawn by hand. </p>
+                <div className="row row-cols-1 row-cols-lg-3 gy-4 g-lg-4 mt-5 categort-list01">
 
-                     {icontypes.map((type) => (
-                            <div className="col" key={type.id}>
-                              <article className="d-inline-block w-100 comon-types01 position-relative">
-                                
-                                <figure className="text-center mx-auto d-block">
-                                  <Link href={type.link}> <Image loading="lazy" src={type.img}
+                      {categorytypes.map((type) => (
+                              <div className="col" key={type.id}>
+                                <article className="d-inline-block w-100 comon-types01 position-relative">
+                                  <h5 className="mb-0 titels-ts"> 
+                                        <Link href={type.link}> 
+                                          {type.title}
+                                        </Link>
+                                  </h5>
+                                  <figure className="text-center mx-auto d-block mb-1">
+                                    <Link href={type.link}> <Image loading="lazy" src={type.img}
+                                          alt="user"
+                                          width={260}
+                                          height={178} /> </Link>
+                                  </figure>
+                                  
+                                </article>
+                              </div>
+                          ))}
+
+                 </div>
+             </div>
+         </section>
+          
+
+         <section className="float-start about-sections comon-short-parts w-100">
+             <aside className="container">
+                 <div className="row row-cols-1 row-cols-lg-2 align-items-center">
+                    <div className="col">
+                       <div className="ab-left">
+                          <h2 className="comon-head"> What’s New<span className="d-lg-block"> in Iconguru </span> </h2>
+                          <p className="col-lg-9 mt-2"> Level up your designs with our premium icons! Whether you need sleek, modern, or creative icons, we’ve got you covered.  </p>
+                          <h5 className="mt-4"> Available Formats </h5>
+                          <ul className="p-0 d-flex align-items-center flex-wrap m-0 fe-list fe-list2 mt-4">
+                            <li className="d-flex align-items-baseline">
+                                <h5 className="m-0"> PNG 
+                                </h5>
+                            </li>
+                            <li className="d-flex align-items-baseline">
+                                <h5 className="m-0"> SVG
+                                </h5>
+                            </li>
+                            <li className="d-flex align-items-baseline">
+                                <h5 className="m-0"> JPJE
+                                </h5>
+                            </li>
+                            <li className="d-flex align-items-baseline">
+                                <h5 className="m-0"> WEBP
+                                </h5>
+                            </li>
+                            
+                            
+                          </ul>
+                          <Link href='/' className="btn btn-expolre mt-3"> Explore now </Link>
+                          
+                       </div>
+                    </div>
+                    <div className="col">
+                       <figure className="m-0">
+                           <Image loading="lazy" src="/download-svg.svg"
                                         alt="user"
-                                        width={205}
-                                        height={202} /> </Link>
-                                </figure>
-                                <span className="d-flex align-items-center w-100 justify-content-between">
-                                    <h5> 
-                                      <Link href={type.link}> 
-                                        {type.title} <small className="d-block">
-                                       {type.counting}+ icons
-                                      </small> 
-                                      </Link>
-                                    </h5>
-                                    <Link href={type.link} className="btn btn-arows">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="rgba(255,255,255,1)"><path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z"></path></svg>
-                                    </Link>
-                                </span>
-                              </article>
-                            </div>
-                        ))}
-                    
-                </div>
+                                        width={442}
+                                        height={338} />
+                       </figure>
+                    </div>
+                 </div>
              </aside>
           </section>
+       
 
-          <section className="float-start tops-icons-sections w-100">
-             <aside className="container">
-                <div className="row g-lg-0 justify-content-between w-100 align-items-center">
-                    <div className="col-lg-9">
-                        <h3 className="page-headings01"> Top Icons </h3>
-                    </div>
-                    <div className="col-lg-3 d-grid justify-content-lg-end">
-                      <Link className="btn btn-all-links p-0" href='/icons'> All Category 
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                          </svg>            
-                      </Link>
-                    </div>
-                </div>
-                <CategorySlider/>
-             </aside>
-          </section>
-
-          <section className="float-start w-100 whats-news">
-              <div className="container">
-                  <div className="row row-cols-1 row-cols-lg-2 align-items-center">
-                     <div className="col">
-                        <h2> What’s New In Ascinate </h2>
-                        <p> Level up your designs with our premium icons! 
-Whether you need sleek, modern, or creative icons,
-we’ve got you covered.   </p>
-                        <h5 className="mt-4"> Available Formats</h5>
-                        <ul className="d-flex align-items-center flex-wrap mt-3">
-                          <li>
-                            PNG
-                          </li>
-                          <li>
-                            SVG
-                          </li>
-                          <li>
-                            GIF
-                          </li>
-                          <li>
-                            WEBP
-                          </li>
-                        </ul>
-                        <div className="d-flex align-items-center mt-4">
-                           <Link href='/' className="btn btn-downalod"> Download </Link>
-                           <Link href='/' className="btn btn-explores p-0 ms-3"> Explore New <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right" viewBox="0 0 16 16">
-                              <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                            </svg> </Link>
-                        </div>
-                     </div>
-                     <div className="col">
-                        <figure>
-                           <Image loading="lazy" src="/right-img.png"
-                                  alt="iconsguru"
-                                  width={504}
-                                  height={324} />
-                        </figure>
-                     </div>
-                  </div>
-              </div>
-          </section>
-          <section className="float-start w-100 register-sections position-relative">
+          
+          <section className="float-start w-100 register-sections comon-short-parts position-relative">
               <div className="container">
                 
                 <Image loading="lazy" className="rockty" src="/rocket-1.png"
