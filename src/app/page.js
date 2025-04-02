@@ -17,12 +17,12 @@ export default function Home() {
   ];
 
   const categorytypes = [
-    { id: 1, title: 'Solid' , counting: '200', tag:"", img: '/jb-white-1.svg', link: '/icons'  },
-    { id: 2, title: 'Regular' , counting: '100', tag:"New", img: '/design-th1.svg', link: '/icons'  },
-    { id: 3, title: 'Bold' , counting: '300', tag:"", img: '/food-th.svg', link: '/icons'  },
-    { id: 4, title: 'Color' , counting: '2000', tag:"", img: '/color-new22.svg', link: '/icons'  },
-    { id: 5, title: 'Color' , counting: '1000', tag:"", img: '/business.svg', link: '/icons'  },
-    { id: 6, title: 'Animation' , counting: '1000', tag:"", img: '/shopping1.svg', link: '/icons'  },
+    { id: 1, title: 'Thin' , counting: '200', tag:"", img: '/tine1.svg', link: '/icons'  },
+    { id: 2, title: 'Solid' , counting: '100', tag:"New", img: '/solid1.svg', link: '/icons'  },
+    { id: 3, title: 'Regular' , counting: '300', tag:"", img: '/regulari.svg', link: '/icons'  },
+    { id: 4, title: 'Color' , counting: '2000', tag:"", img: '/colori.svg', link: '/icons'  },
+    { id: 5, title: 'Bold' , counting: '1000', tag:"", img: '/boldi.svg', link: '/icons'  },
+    { id: 6, title: 'Animation' , counting: '1000', tag:"", img: '/animated1.svg', link: '/icons'  },
   ];
   
   return (
@@ -153,13 +153,13 @@ export default function Home() {
 
          <section className="float-start w-100 comon-short-parts types-catg-sections">
              <div className="container">
-                <h2 className="text-center comon-head"> Featured premium icon sets </h2>
+                <h2 className="text-center comon-head"> Professional Icon Set Features </h2>
                 <p className="text-center"> Download the perfection and largest unique icons drawn by hand. </p>
                 <div className="row row-cols-1 row-cols-lg-3 gy-4 g-lg-4 mt-5 categort-list01">
 
                       {categorytypes.map((type) => (
                               <div className="col" key={type.id}>
-                                <article className="d-inline-block w-100 comon-types01 position-relative">
+                                <article className="d-inline-block w-100 sp-left-paddings comon-types01 position-relative">
                                   <h5 className="mb-0 titels-ts"> 
                                         <Link href={type.link}> 
                                           {type.title}

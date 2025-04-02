@@ -18,6 +18,7 @@ export default function Searchall() {
       <main className="col-7">
         <Form onSubmit={handleSearch} className="d-flex align-items-center w-100">
           <input
+             name="query"
             type="text"
             className="form-control"
             placeholder="Search icons..."

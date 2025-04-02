@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 
 
 
+
 function Details() {
       const [icons, setIcons] = useState([]);
       const [selectedOption, setSelectedOption] = useState('');
@@ -108,6 +109,9 @@ function Details() {
         { id: 5, title: 'Activity' , link: '/' },
         { id: 6, title: 'Commerce' , link: '/' },
       ];
+      
+
+      
      return(
         <>
         <Head>
@@ -177,6 +181,8 @@ function Details() {
                                                   <option value="120">120px</option>
                                                   <option value="240">240px</option>
                                               </select>
+
+                                              
                                          </div>
                                       </div>
                                       <div className="comon-groups-div01 d-flex align-items-center justify-content-between">
