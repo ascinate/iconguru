@@ -71,7 +71,8 @@ export default function RootLayout({ children }) {
         p,
         h5,
         .icon-headings,
-        .styles-icons-div h4{
+        .styles-icons-div h4,
+        .comon-heading-sub{
           font-family: ${inter.style.fontFamily};
         }
          

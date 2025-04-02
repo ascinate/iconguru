@@ -419,6 +419,41 @@ a {
   font-size: 16px;
   font-weight: 500;
 }
+.btn-comon-socail{
+  border: solid 3px var(--head-color) !important;
+  border-radius: 7px;
+  width: 400px;
+  height: 51px;
+  margin-bottom: 15px;
+}
+.btn-comon-socail:focus{
+  box-shadow: none !important;
+}
+.btn-comon-socail span{
+  margin-right: 7px !important;
+}
+.btn-comon-socail{
+  font-size: 16px;
+  font-weight: 600 !important;
+  color: var(--head-color) !important;
+}
+.email-div01{
+  margin-top: 50px;
+}
+.continue-btn{
+  background: var(--primaycolor) !important;
+  color: var(--background) !important;
+  border-radius: 7px;
+  width: 400px;
+  height: 51px;
+}
+.continue-btn:hover{
+  background: var(--head-color) !important;
+  color: var(--background) !important;
+}
+.liast-listp span a{
+  color: var(--head-color) !important;
+}
 @media (width >= 992px) {
   .fetures-acountins-sections .container{
     max-width: 1010px;
@@ -427,7 +462,14 @@ a {
     max-width: 1010px;
   }
 }
-
+@media (width >= 1400px) {
+  .fetures-acountins-sections .container{
+    max-width: 1200px;
+  }
+  .comon-short-parts .container{
+    max-width: 1200px;
+  }
+}
 
 .page-headings01{
   font-weight: 600;
@@ -849,6 +891,41 @@ footer hr{
 .serch-data{
   color: var(--head-color);
   font-weight: 700;
+}
+.register-pages-crm{
+  padding-top: 120px;
+  padding-bottom: 70px;
+}
+.comon-heading-sub{
+  color: var(--head-color);
+  font-weight: 600;
+  font-size: 46px;
+}
+.register-pages-crm .sub-para{
+  font-size: 18px;
+  color: var(--head-color);
+}
+.register-pages-crm .sub-para a{
+  color: var(--head-color);
+}
+.register-pages-crm .sub-para a strong{
+  font-weight: 500;
+  color: var(--head-color);
+
+}
+
+.comon-rgesigner-sections .form-control{
+  border: solid var(--head-color) 3px;
+  height: 52px;
+}
+.comon-rgesigner-sections .form-control:focus{
+  box-shadow: none;
+  border: solid var(--primaycolor) 3px;
+}
+.comon-rgesigner-sections .form-label{
+   font-weight: 600;
+   color: var(--head-color);
+   font-size: 17px;
 }
 @media (width >= 1200px) {
   .comon-rows .row > div.col {

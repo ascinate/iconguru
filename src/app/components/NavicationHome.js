@@ -35,8 +35,8 @@ function NavicationHome(){
                 </div>
                 <div className="right-menus-div01 ms-auto d-flex align-items-center">
                      <Link href='/' className="nav-link me-3 why-menu"> Why Us </Link>
-                    <button type="button" className="btn me-3" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-                    <button type="button" className="btn btn-signup01" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up</button>
+                    <Link href='/login' className="btn me-3">Login</Link>
+                    <Link href='/register' className="btn btn-signup01" >Sign Up </Link>
                 </div>
             </div>
         </nav>
