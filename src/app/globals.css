@@ -394,6 +394,10 @@ a {
    color: var(--background);
    width: 100%;
 }
+.sub-texr01{
+  font-size: 20px;
+  color: var(--head-color);
+}
 .categort-list01 .comon-types01 {
   border-radius: 8px;
   padding: 27px 15px 0;
@@ -453,6 +457,155 @@ a {
 }
 .liast-listp span a{
   color: var(--head-color) !important;
+}
+
+.pricing-pages-part{
+  
+}
+.pricing-pages-part .nav-link{
+  font-size: 16px;
+  color: var(--head-color);
+  font-weight: 600;
+  border: solid 1px #fff !important;
+  border-radius: 0;
+}
+.pricing-pages-part .nav-tabs{
+  border-bottom: solid 2px #E8E8E8 !important;
+  width: 52%;
+}
+.pricing-pages-part .nav-tabs .nav-item.show .nav-link, 
+.pricing-pages-part .nav-tabs .nav-link.active{
+  border-bottom: solid 2px var(--head-color) !important;
+}
+.pricing-pages-part .table th{
+  font-size: 20px;
+}
+.pricing-pages-part .table td{
+   font-size: 18px;
+   color: var(--tabs-active-color);
+}
+tbody, td, tfoot, th, thead, tr{
+  border: none !important;
+}
+.months-div{
+  border: solid 2px #181818 !important;
+  padding:40px 28px 28px 28px !important;
+  border-radius: 0 !important;
+  min-height: 353px;
+  text-align: center;
+  position: relative;
+
+}
+.months-div .btn-upgrade{
+  background: var(--head-color) !important;
+  color: var(--background) !important;
+  font-size: 14px;
+  padding: 10px 30px 13px 30px !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 86%;
+  margin: auto;
+  margin-bottom: 30px;
+  transition: all 0.5s;
+}
+.months-div .btn-upgrade:hover{
+  background: var(--primaycolor) !important;
+}
+.months-div h2{
+  color: var(--head-color);
+  font-size: 30px;
+  font-weight: 600;
+}
+.months-div h3 small{
+  font-size: 20px;
+  color: var(--tabs-active-color);
+  font-weight: 400;
+}
+.vats-texts{
+  font-size: 15px;
+}
+.faq-parts01{
+  padding-top: 150px;
+}
+.faq-parts01 .accordion-button{
+  font-size: 18px;
+  color: var(--head-color);
+}
+.faq-parts01 .as-divbg p{
+  font-size: 16px;
+  color: var(--head-color);
+}
+.faq-parts01 .accordion-item{
+  border: none !important;
+  border-bottom: solid #E8E8E8 1px !important;
+}
+.faq-parts01 .accordion-button:focus{
+  box-shadow: none !important;
+}
+.faq-parts01 .accordion-button:not(.collapsed){
+  background: none !important;
+  color: var(--head-color) !important;
+}
+.faq-parts01 .accordion-button:after{
+  background-image: none;
+  content: "+";
+  transform: none !important;
+  font-size: 23px;
+}
+.faq-parts01 .accordion-button:not(.collapsed):after{
+  background-image: none;
+  content: "-";
+}
+.btn-upgrade{
+  background: #F3F3F4 !important;
+  padding: 13px 30px !important;
+  font-weight: 600 !important;
+  color: var(--head-color);
+
+}
+.btn-upgrade span{
+  margin-right: 5px !important;
+}
+.account-edits-mains ul{
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  border-bottom: solid 1px #E8E8E8 !important; 
+}
+.account-edits-mains ul li{
+  margin: 0 50px 0 0;
+}
+.account-edits-mains ul li a{
+  text-decoration: none;
+  color: var(--head-color) !important;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 10px 0;
+  display: inline-block;
+}
+.form-section-parts01 .form-label{
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--head-color);
+}
+.form-section-parts01 .form-group{
+  margin-bottom: 15px !important;
+  display: inline-block;
+  width: 100%;
+}
+.form-section-parts01 .form-control{
+  border: solid 3px var(--head-color) !important;
+  height: 52px;
+}
+.form-section-parts01 .btn-updates{
+  background: var(--head-color) !important;
+  color: var(--background) !important;
+  width: 100%;
+  height: 55px;
 }
 @media (width >= 992px) {
   .fetures-acountins-sections .container{
@@ -884,6 +1037,10 @@ footer hr{
 }
 .listing-pages{
   padding-top: 120px;
+}
+.pricing-pages-part{
+  padding-top: 90px;
+  padding-bottom: 80px;
 }
 .search-listings01{
   color: var(--head-color);

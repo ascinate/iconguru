@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
         html {
           font-family: ${sorasans.style.fontFamily};
         }
-        h1, h2, h3, h4, h5{
+        .banner-parts01 h2{
          font-family: ${sorasans.style.fontFamily};
         }
         button{
