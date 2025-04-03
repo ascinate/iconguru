@@ -200,7 +200,7 @@ export default function PlansPage() {
                         </div>
                        ))}
                     </div>
-                    <p className="text-center mt-3 vats-texts"> * VAT & local taxes may apply </p>
+                    <p className="text-center mt-3 vats-texts"> VAT & local taxes may apply </p>
                   </div>
                 </div>
                 )}

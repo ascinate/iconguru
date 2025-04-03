@@ -89,7 +89,7 @@ export default function Profile() {
                                       <input type="text" className="form-control" placeholder="David Bowie" required/>
                                    </div>
                                    <div className="form-group">
-                                      <label className="form-label"> * Email address </label>
+                                      <label className="form-label"> Email address </label>
                                       <input type="text" className="form-control" placeholder="tal@adoric.com" required/>
                                    </div>
                                    <div className="form-group mt-2">
