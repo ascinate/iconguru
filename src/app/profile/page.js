@@ -5,19 +5,10 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from 'next/navigation';
 import Form from "next/form";
 
 export default function Profile() {
   const [plans, setPlans] = useState([]);
-
-  const router = useRouter();
-  const pathname = usePathname()
-
-  const isActive = (path) => {
-    return router.pathname === path ? 'active' : '';
-  };
-
 
 
   useEffect(() => {
@@ -71,19 +62,19 @@ export default function Profile() {
           <div className="comons-page-divs d-inline-block w-100">
               <div className="account-edits-mains mt-4">
                  <ul className="d-flex align-items-center">
-                   <li  className={isActive('/profile')}>
+                   <li>
                      <Link href='/profile' className="men-lis01"> Profile </Link>
                    </li>
-                   <li className={isActive('/password')}>
+                   <li>
                      <Link href='/password' className="men-lis01"> Password </Link>
                    </li>
-                   <li className={isActive('/myplan')}>
+                   <li>
                      <Link href='/myplan' className="men-lis01"> Plans </Link>
                    </li>
-                   <li className={isActive('/billing')}>
+                   <li>
                      <Link href='/billing' className="men-lis01"> Billing </Link>
                    </li>
-                   <li className={isActive('/download')}>
+                   <li>
                      <Link href='/download' className="men-lis01"> Download history </Link>
                    </li>
                  </ul>
