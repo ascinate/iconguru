@@ -7,7 +7,7 @@ function Footer(){
     const mianmenu = [
         { id: 1, title: 'About Us' , link: '/'  },
         { id: 2, title: 'Blog' , link: '/'  },
-        { id: 3, title: 'Pricing' , link: '/plans'  },
+        { id: 3, title: 'Pricing' , link: '/'  },
         
     ];
     const categorymenu = [

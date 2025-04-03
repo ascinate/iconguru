@@ -550,13 +550,13 @@ tbody, td, tfoot, th, thead, tr{
 }
 .faq-parts01 .accordion-button:after{
   background-image: none;
-  /* content: "+"; */
+  content: "+";
   transform: none !important;
   font-size: 23px;
 }
 .faq-parts01 .accordion-button:not(.collapsed):after{
   background-image: none;
-  /* content: "-"; */
+  content: "-";
 }
 .btn-upgrade{
   background: #F3F3F4 !important;
