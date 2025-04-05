@@ -66,7 +66,7 @@ export default function SidebarFilter() {
                             className="form-check-input"
                             />
                         <label className="form-check-label" htmlFor="option1">
-                         <span className="me-2"> <Image src="/block-icons.svg" loading="lazy" width={14} height={14}/> </span>  Black
+                         <span className="me-2"> <Image src="/block-icons.svg" alt="iconsguru" loading="lazy" width={14} height={14}/> </span>  Black
                        </label>
                     </div>
 
@@ -82,7 +82,7 @@ export default function SidebarFilter() {
                             />
                             
                         <label className="form-check-label" htmlFor="option2">
-                          <span className="me-2"> <Image src="/gradients.svg" loading="lazy" width={16} height={16}/> </span>
+                          <span className="me-2"> <Image src="/gradients.svg" alt="iconsguru2" loading="lazy" width={16} height={16}/> </span>
                          Color
                        </label>
                     </div>
@@ -97,7 +97,7 @@ export default function SidebarFilter() {
                             className="form-check-input"
                             />
                         <label className="form-check-label" htmlFor="option2">
-                        <span className="me-2"> <Image src="/gradients.svg" loading="lazy" width={16} height={16}/> </span>
+                        <span className="me-2"> <Image src="/gradients.svg" alt="iconsguru3" loading="lazy" width={16} height={16}/> </span>
                          Gradient
                        </label>
                     </div>
@@ -122,7 +122,7 @@ export default function SidebarFilter() {
                             className="form-check-input"
                             />
                         <label className="form-check-label" htmlFor="sizeoption1">
-                         <span className="me-2"> <Image src="/block-icons.svg" loading="lazy" width={14} height={14}/> </span>  Solid
+                         <span className="me-2"> <Image src="/block-icons.svg" alt="iconsguru4" loading="lazy" width={14} height={14}/> </span>  Solid
                        </label>
                     </div>
 
@@ -138,7 +138,7 @@ export default function SidebarFilter() {
                             />
                             
                         <label className="form-check-label" htmlFor="sizeoption2">
-                          <span className="me-2"> <Image src="/ragulari.svg" loading="lazy" width={16} height={16}/> </span>
+                          <span className="me-2"> <Image src="/ragulari.svg" alt="iconsguru6" loading="lazy" width={16} height={16}/> </span>
                           Regular
                        </label>
                     </div>
@@ -153,7 +153,7 @@ export default function SidebarFilter() {
                             className="form-check-input"
                             />
                         <label className="form-check-label" htmlFor="sizeoption3">
-                        <span className="me-2"> <Image src="/ragulari.svg" loading="lazy" width={16} height={16}/> </span>
+                        <span className="me-2"> <Image src="/ragulari.svg" alt="iconsguru7" loading="lazy" width={16} height={16}/> </span>
                          Light
                        </label>
                     </div>
@@ -168,7 +168,7 @@ export default function SidebarFilter() {
                             className="form-check-input"
                             />
                         <label className="form-check-label" htmlFor="sizeoption3">
-                        <span className="me-2"> <Image src="/duotine.svg" loading="lazy" width={16} height={16}/> </span>
+                        <span className="me-2"> <Image src="/duotine.svg" alt="iconsguru8" loading="lazy" width={16} height={16}/> </span>
                            Duotine
                        </label>
                     </div>
@@ -195,7 +195,7 @@ export default function SidebarFilter() {
                                   className="form-check-input"
                                   />
                               <label className="form-check-label" htmlFor="sizeoption1">
-                              <span className="me-2"> <Image src={post.img} loading="lazy" width={14} height={14}/> </span>  {post.title}
+                              <span className="me-2"> <Image src={post.img} alt="iconsguru9" loading="lazy" width={14} height={14}/> </span>  {post.title}
                             </label>
                           </div>
                           
