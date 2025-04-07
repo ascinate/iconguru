@@ -13,7 +13,7 @@ export default function IconDetailPage() {
 
     const fetchIcon = async () => {
       try {
-        const res = await fetch(`https://iconsguru.com/admin/icons/${id}`);
+        const res = await fetch(`https://iconsguru.com/admin/api/icons/${id}`);
         const data = await res.json();
         console.log("Fetched icon data:", data);
         setIcon(data);
