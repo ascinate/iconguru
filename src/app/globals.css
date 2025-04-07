@@ -1087,6 +1087,9 @@ footer hr{
 .sp-left-paddings h5{
   padding-left: 25px;
 }
+.svgimg02{
+  display: inline-block;
+}
 @media (width >= 1200px) {
   .comon-rows .row > div.col {
       flex: none;
