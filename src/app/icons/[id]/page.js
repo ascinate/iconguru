@@ -3,55 +3,33 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
-
 export default function IconDetailPage() {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id;
   const [icon, setIcon] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (id) {
-      fetch(`https://iconsguru.com/admin/icons/${id}`)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("Fetched icon data:", data); 
-          setIcon(data?.icon);
-        })
-        .catch((err) => {
-          console.error("API error:", err);
-        })
-        .finally(() => setLoading(false));
-    }
+    if (!id) return;
+
+    const fetchIcon = async () => {
+      try {
+        const res = await fetch(`https://iconsguru.com/admin/icons/${id}`);
+        const data = await res.json();
+        console.log("Fetched icon data:", data);
+        setIcon(data);
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
+
+    fetchIcon();
   }, [id]);
 
+  if (!icon) return <div>Loading...</div>;
+
   return (
-    <>
-   
-
-      <main className="container my-5">
-        {loading ? (
-          <p>Loading...</p>
-        ) : icon ? (
-          <div className="row">
-            <div className="col-md-6">
-              <div
-                className="icon-preview border p-4"
-                dangerouslySetInnerHTML={{ __html: icon.icon_svg }}
-              />
-            </div>
-            <div className="col-md-6">
-              <h2>{icon.title || "Icon Title"}</h2>
-              <p>Category: {icon.category_name}</p>
-              <p>Tags: {icon.tags?.join(", ")}</p>
-              <button className="btn btn-primary">Download SVG</button>
-            </div>
-          </div>
-        ) : (
-          <p>Icon not found.</p>
-        )}
-      </main>
-
-    
-    </>
+    <div className="container mt-5">
+      <div dangerouslySetInnerHTML={{ __html: icon.icon_svg }} />
+    </div>
   );
 }
