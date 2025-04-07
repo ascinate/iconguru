@@ -149,7 +149,7 @@ export default function Icons() {
                         ) : (
                           icons.map((icon) => (
                             <article key={icon.Id} className="svg-item col position-relative">
-                              <Link href={`/details/${icon.icon_name.toLowerCase().replace(/\s+/g, '-')}-${icon.Id}`} className="btn icons-list p-0">
+                              <Link href={`/icons/${icon.Id}`} className="btn icons-list p-0">
                                 <span
                                   dangerouslySetInnerHTML={{ __html: icon.icon_svg }}
                                 ></span>

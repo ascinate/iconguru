@@ -11,10 +11,10 @@ export default function IconDetailPage() {
 
   useEffect(() => {
     if (id) {
-      fetch(`https://iconsguru.com/admin/api/icons/${id}`)
+      fetch(`https://iconsguru.com/admin/icons/${id}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log("Fetched icon data:", data); // 👈 debug line
+          console.log("Fetched icon data:", data); 
           setIcon(data?.icon);
         })
         .catch((err) => {
