@@ -31,7 +31,7 @@ export default function Icons() {
         const data = await response.json();
 
         if (data?.icons?.data && Array.isArray(data.icons.data)) {
-          setIcons(data.icons.data);
+          setIcons(data.icons);
           setTotalPages(data.icons.last_page || 1);
         } else {
           console.error("Unexpected data.icons format:", data);
@@ -69,8 +69,9 @@ export default function Icons() {
               <div className="main-divs g-col-6">
                 <h2 className="search-listings01">Music icons</h2>
                 <p>
-                Showing <strong className="serch-data">{icons?.total || 0}</strong> Icons
+                  Showing <strong className="serch-data">{icons?.total || 0}</strong> Icons
                 </p>
+
 
                 <div className="ser-listu-lis">
                   <div className="search-sections-home my-4 d-flex justify-content-between align-items-center bg-white">
@@ -123,7 +124,7 @@ export default function Icons() {
                             </div>
                           </div>
                         ) : Array.isArray(icons) && icons.length > 0 ? (
-                          icons.map((icon) => (
+                          icons?.data?.map((icon) => (
                             <article key={icon.Id} className="svg-item col position-relative">
                               <Link href={`/icons/${icon.Id}`} className="btn icons-list p-0">
                                 <span dangerouslySetInnerHTML={{ __html: icon.icon_svg }}></span>
