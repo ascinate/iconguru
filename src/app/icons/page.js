@@ -31,7 +31,7 @@ export default function Icons() {
         const data = await response.json();
 
         if (data?.icons?.data && Array.isArray(data.icons.data)) {
-          setIcons(data.icons);
+          setIcons(data.icons.data);
           setTotalPages(data.icons.last_page || 1);
         } else {
           console.error("Unexpected data.icons format:", data);
