@@ -1,3 +1,4 @@
+// pages/icons.js
 "use client";
 import Head from "next/head";
 import NavicationHome from "../components/NavicationHome";
@@ -12,12 +13,22 @@ export default function Icons() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [filters, setFilters] = useState({ categories: [], colors: [], types: [] });
 
   useEffect(() => {
     const fetchIcons = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`https://iconsguru.com/admin/api/icons?page=${page}&limit=20`);
+        const query = new URLSearchParams();
+        query.append("page", page);
+        query.append("limit", 20);
+
+        if (filters.categories.length) filters.categories.forEach(c => query.append("icon_category[]", c));
+        if (filters.colors.length) filters.colors.forEach(c => query.append("color[]", c));
+        if (filters.types.length) filters.types.forEach(t => query.append("type[]", t));
+
+
+        const response = await fetch(`https://iconsguru.com/admin/api/icons?${query.toString()}`);
         const data = await response.json();
 
         if (data?.icons?.data && Array.isArray(data.icons.data)) {
@@ -36,7 +47,7 @@ export default function Icons() {
     };
 
     fetchIcons();
-  }, [page]);
+  }, [page, filters]);
 
   return (
     <>
@@ -53,7 +64,7 @@ export default function Icons() {
         <div className="container">
           <div className="row">
             <div className="col-lg-3">
-              <SidebarFilter />
+              <SidebarFilter onFilterChange={setFilters} />
             </div>
             <div className="col-lg-9 ps-lg-4">
               <div className="main-divs g-col-6">
@@ -171,11 +182,9 @@ export default function Icons() {
                         </button>
                       </div>
                     </div>
-
                     <div className="tab-pane fade" id="interface" role="tabpanel">
                       <div className="row row-cols-1 row-cols-lg-6 gy-4 g-lg-4 mt-0"></div>
                     </div>
-
                     <div className="tab-pane fade" id="animated" role="tabpanel">
                       ...
                     </div>
