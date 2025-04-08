@@ -124,7 +124,7 @@ export default function Icons() {
                             </div>
                           </div>
                         ) : Array.isArray(icons) && icons.length > 0 ? (
-                          icons?.data?.map((icon) => (
+                          icons.map((icon) => (
                             <article key={icon.Id} className="svg-item col position-relative">
                               <Link href={`/icons/${icon.Id}`} className="btn icons-list p-0">
                                 <span dangerouslySetInnerHTML={{ __html: icon.icon_svg }}></span>
