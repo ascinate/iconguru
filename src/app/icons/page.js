@@ -14,6 +14,7 @@ export default function Icons() {
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [filters, setFilters] = useState({ categories: [], colors: [], types: [] });
+  const [totalIcons, setTotalIcons] = useState(0);
 
   useEffect(() => {
     const fetchIcons = async () => {
@@ -33,6 +34,7 @@ export default function Icons() {
         if (data?.icons?.data && Array.isArray(data.icons.data)) {
           setIcons(data.icons.data);
           setTotalPages(data.icons.last_page || 1);
+          setTotalIcons(data.icons.total || 0);
         } else {
           console.error("Unexpected data.icons format:", data);
           setIcons([]);
@@ -69,7 +71,7 @@ export default function Icons() {
               <div className="main-divs g-col-6">
                 <h2 className="search-listings01">Music icons</h2>
                 <p>
-                  Showing <strong className="serch-data">{icons.length}</strong> Icons
+                  Showing <strong className="serch-data">{totalIcons}</strong> Icons
                 </p>
 
 
