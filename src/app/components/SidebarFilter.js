@@ -4,15 +4,15 @@ import axios from 'axios'
 
 export default function SidebarFilter({ onFilterChange }) {
   const [filters, setFilters] = useState({
-    icon_category: [],
-    color: [],
-    type: [],
+    categories: [],
+    colors: [],
+    types: [],
   })
 
   const [selectedFilters, setSelectedFilters] = useState({
-    icon_category: [],
-    color: [],
-    type: [],
+    categories: [],
+    colors: [],
+    types: [],
   })
 
   useEffect(() => {
@@ -20,9 +20,9 @@ export default function SidebarFilter({ onFilterChange }) {
       .then(res => {
         const data = res.data
         setFilters({
-          icon_category: Array.isArray(data.icon_category) ? data.icon_category : [],
-          color: Array.isArray(data.color) ? data.color : [],
-          type: Array.isArray(data.type) ? data.type: [],
+          categories: Array.isArray(data.categories) ? data.categories : [],
+          colors: Array.isArray(data.colors) ? data.colors : [],
+          types: Array.isArray(data.types) ? data.types : [],
         })
       })
       .catch(err => console.error('Sidebar filter fetch error:', err))
@@ -53,14 +53,14 @@ export default function SidebarFilter({ onFilterChange }) {
       <div className="mb-4">
         <h3 className="font-semibold text-lg mb-2">Category</h3>
         <ul>
-          {filters.icon_category.map((cat, i) => (
+          {filters.categories.map((cat, i) => (
             <li key={i}>
               <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   className="form-checkbox"
-                  onChange={() => handleCheckboxChange('icon_category', cat)}
-                  checked={selectedFilters.icon_category.includes(cat)}
+                  onChange={() => handleCheckboxChange('categories', cat)}
+                  checked={selectedFilters.categories.includes(cat)}
                 />
                 {cat.trim()}
               </label>
@@ -73,14 +73,14 @@ export default function SidebarFilter({ onFilterChange }) {
       <div className="mb-4">
         <h3 className="font-semibold text-lg mb-2">Color</h3>
         <ul className="flex flex-wrap gap-2">
-          {filters.color.map((color, i) => (
+          {filters.colors.map((color, i) => (
             <li key={i}>
               <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   className="form-checkbox"
-                  onChange={() => handleCheckboxChange('color', color)}
-                  checked={selectedFilters.color.includes(color)}
+                  onChange={() => handleCheckboxChange('colors', color)}
+                  checked={selectedFilters.colors.includes(color)}
                 />
                 {color.trim()}
               </label>
@@ -93,14 +93,14 @@ export default function SidebarFilter({ onFilterChange }) {
       <div className="mb-4">
         <h3 className="font-semibold text-lg mb-2">Type</h3>
         <ul>
-          {filters.type.map((type, i) => (
+          {filters.types.map((type, i) => (
             <li key={i}>
               <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   className="form-checkbox"
-                  onChange={() => handleCheckboxChange('type', type)}
-                  checked={selectedFilters.type.includes(type)}
+                  onChange={() => handleCheckboxChange('types', type)}
+                  checked={selectedFilters.types.includes(type)}
                 />
                 {type.trim()}
               </label>
