@@ -29,7 +29,10 @@ export default function Icons() {
 
 
         const response = await fetch(`https://iconsguru.com/admin/api/icons?${query.toString()}`);
+        console.log("🔍 Applied Filters:", filters);
+        console.log("🔗 API URL:", response);
         const data = await response.json();
+      
 
         if (data?.icons?.data && Array.isArray(data.icons.data)) {
           setIcons(data.icons.data);
