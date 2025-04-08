@@ -69,8 +69,9 @@ export default function Icons() {
               <div className="main-divs g-col-6">
                 <h2 className="search-listings01">Music icons</h2>
                 <p>
-                  Showing <strong className="serch-data">{icons?.total || 0}</strong> Icons
+                  Showing <strong className="serch-data">{icons.length}</strong> Icons
                 </p>
+
 
 
                 <div className="ser-listu-lis">
