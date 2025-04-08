@@ -52,7 +52,7 @@ export default function SidebarFilter() {
       <div className="mb-4">
         <h3 className="font-semibold text-lg mb-2">Type</h3>
         <ul>
-        {filters.categories.map((type, i) => (
+        {filters.types.map((type, i) => (
           <li key={i}><input type="checkbox" className="form-checkbox" />{type.trim()}</li>
         ))}
         </ul>
