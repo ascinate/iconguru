@@ -13,7 +13,7 @@ export default function Icons() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [filters, setFilters] = useState({ categories: [], colors: [], types: [] });
+  const [filters, setFilters] = useState({ icon_category: [], color: [], type: [] });
 
   useEffect(() => {
     const fetchIcons = async () => {
@@ -23,9 +23,9 @@ export default function Icons() {
         query.append("page", page);
         query.append("limit", 20);
 
-        if (filters.categories.length) filters.categories.forEach(c => query.append("categories[]", c));
-        if (filters.colors.length) filters.colors.forEach(c => query.append("colors[]", c));
-        if (filters.types.length) filters.types.forEach(t => query.append("types[]", t));
+        if (filters.icon_category.length) filters.icon_category.forEach(c => query.append("icon_category[]", c));
+        if (filters.color.length) filters.color.forEach(c => query.append("color[]", c));
+        if (filters.type.length) filters.type.forEach(t => query.append("type[]", t));
 
 
         const response = await fetch(`https://iconsguru.com/admin/api/icons?${query.toString()}`);
