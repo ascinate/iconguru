@@ -28,7 +28,7 @@ function BannerHome() {
 
   const handleSearchClick = () => {
     if (value.trim()) {
-      router.push(`/search-result?search=${encodeURIComponent(value.trim())}`);
+      router.push(`/search?search=${encodeURIComponent(value.trim())}`);
     }
   };
 
