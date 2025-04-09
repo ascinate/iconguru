@@ -1,4 +1,3 @@
-// pages/icons.js
 "use client";
 import Head from "next/head";
 import NavicationHome from "../components/NavicationHome";
@@ -7,14 +6,19 @@ import SidebarFilter from "../components/SidebarFilter";
 import Footer from "../components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 export default function Icons() {
+  const searchParams = useSearchParams();
+const searchKeyword = searchParams.get("search");
+
   const [icons, setIcons] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [filters, setFilters] = useState({ categories: [], colors: [], types: [] });
   const [totalIcons, setTotalIcons] = useState(0);
+  
 
   useEffect(() => {
     const fetchIcons = async () => {
@@ -23,32 +27,37 @@ export default function Icons() {
         const query = new URLSearchParams();
         query.append("page", page);
         query.append("limit", 20);
-
+  
         if (filters.categories.length) filters.categories.forEach(c => query.append("categories[]", c));
         if (filters.colors.length) filters.colors.forEach(c => query.append("colors[]", c));
         if (filters.types.length) filters.types.forEach(t => query.append("types[]", t));
-
-        const response = await fetch(`https://iconsguru.com/admin/api/icons?${query.toString()}`);
+  
+        if (searchKeyword) query.append("search", searchKeyword);
+  
+        const finalURL = `https://iconsguru.com/admin/api/icons?${query.toString()}`;
+         
+        const response = await fetch(finalURL);
         const data = await response.json();
-
+  
         if (data?.icons?.data && Array.isArray(data.icons.data)) {
           setIcons(data.icons.data);
           setTotalPages(data.icons.last_page || 1);
           setTotalIcons(data.icons.total || 0);
         } else {
-          console.error("Unexpected data.icons format:", data);
+          console.error("❌ Unexpected data.icons format:", data);
           setIcons([]);
         }
       } catch (error) {
-        console.error("Error fetching icons:", error);
+        console.error("🚨 Error fetching icons:", error);
         setIcons([]);
       } finally {
         setIsLoading(false);
       }
     };
-
+  
     fetchIcons();
-  }, [page, filters]);
+  }, [page, filters, searchKeyword]);
+  
 
   return (
     <>
