@@ -82,7 +82,7 @@ export default function IconDetailPage() {
     link.click();
   };
 
-  if (!icon) return <div className="text-center mt-10">Loading...</div>;
+  if (!icon) return null;
 
   const renderedSvg = applyColorAndSize(icon.icon_svg);
 
