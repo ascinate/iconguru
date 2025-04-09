@@ -129,7 +129,7 @@ export default function Icons() {
                         ) : Array.isArray(icons) && icons.length > 0 ? (
                           icons.map((icon) => (
                             <article key={icon.Id} className="svg-item col position-relative">
-                              <Link href={`/icons/${icon.Id}`} className="btn icons-list p-0">
+                              <Link href={`/search-result/${icon.Id}`} className="btn icons-list p-0">
                                 <span dangerouslySetInnerHTML={{ __html: icon.icon_svg }}></span>
                               </Link>
                               <div className="hover-divs">
