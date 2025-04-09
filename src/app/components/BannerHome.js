@@ -1,7 +1,17 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from 'react'
+import { AutoComplete } from "primereact/autocomplete";
 
 function BannerHome() {
+    const [value, setValue] = useState('');
+    const [items, setItems] = useState([]);
+
+    const search = (event) => {
+        setItems([...Array(10).keys()].map(item => event.query + '-' + item));
+    }
+
     const favicons = [
         { id: 1, title: 'Icons' , link: '/icons', code:<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M16.5 0H7.5C5.51088 0 3.60322 0.790176 2.1967 2.1967C0.790176 3.60322 0 5.51088 0 7.5L0 16.5C0 18.4891 0.790176 20.3968 2.1967 21.8033C3.60322 23.2098 5.51088 24 7.5 24H16.5C18.4891 24 20.3968 23.2098 21.8033 21.8033C23.2098 20.3968 24 18.4891 24 16.5V7.5C24 5.51088 23.2098 3.60322 21.8033 2.1967C20.3968 0.790176 18.4891 0 16.5 0V0ZM21.75 16.5C21.75 17.8924 21.1969 19.2277 20.2123 20.2123C19.2277 21.1969 17.8924 21.75 16.5 21.75H7.5C6.10761 21.75 4.77226 21.1969 3.78769 20.2123C2.80312 19.2277 2.25 17.8924 2.25 16.5V7.5C2.25 6.10761 2.80312 4.77226 3.78769 3.78769C4.77226 2.80312 6.10761 2.25 7.5 2.25H16.5C17.8924 2.25 19.2277 2.80312 20.2123 3.78769C21.1969 4.77226 21.75 6.10761 21.75 7.5V16.5Z" fill="black"/>
@@ -39,9 +49,10 @@ function BannerHome() {
                 <h2 className="text-center">We Deliver the World’s Best Icons</h2>
                 <p className="text-center text-para1"> Download the perfection and largest unique icons drawn by hand. </p>
                 <div className="search-sections-home col-lg-8 mx-auto d-flex justify-content-between align-items-center bg-white">
-                    <input type="search" className="form-control" placeholder="Search icons..."/>
+                    <AutoComplete value={value} className="form-control" placeholder="Search icons..." suggestions={items} completeMethod={search} onChange={(e) => setValue(e.value)} />
                     <button className="btn btn-search"> Search <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(255,255,255,1)"><path d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"></path></svg> </button>
                 </div>
+                
                 <div className="favi-icons mt-4 col-lg-7 mx-auto d-flex align-items-center justify-content-center">
                     <p className="m-0">Favorite Icons: </p>
                     <ul className="d-flex align-items-center ms-3">

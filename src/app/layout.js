@@ -52,7 +52,8 @@ export default function RootLayout({ children }) {
         .banner-parts01 h2{
          font-family: ${sorasans.style.fontFamily};
         }
-        button{
+        button,
+        .p-autocomplete-item{
          font-family: ${inter.style.fontFamily};
         } 
         input{
