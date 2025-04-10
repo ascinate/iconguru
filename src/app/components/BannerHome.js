@@ -5,6 +5,7 @@ import { AutoComplete } from 'primereact/autocomplete';
 import { useRouter } from 'next/navigation';
 
 
+
 function BannerHome() {
   const [value, setValue] = useState('');
   const [items, setItems] = useState([]);
