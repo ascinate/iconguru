@@ -6,7 +6,9 @@ import SidebarFilter from "../components/SidebarFilter";
 import Footer from "../components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { Suspense } from 'react';
 import { useSearchParams } from "next/navigation";
+
 
 export default function Icons() {
   const searchParams = useSearchParams();
@@ -210,5 +212,12 @@ const searchKeyword = searchParams.get("search");
 
       <Footer />
     </>
+  );
+}
+export  function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Icons />
+    </Suspense>
   );
 }
