@@ -18,7 +18,7 @@ function BannerHome() {
       try {
         const res = await fetch(`https://iconsguru.com/admin/api/icons/search?query=${encodeURIComponent(query)}`);
         const data = await res.json();
-        const names = data.icons.map(icon => icon.icon_name);
+        const names = data.data.map(icon => icon.icon_name);
         setItems(names);
       } catch (err) {
         console.error('Autocomplete fetch error:', err);
