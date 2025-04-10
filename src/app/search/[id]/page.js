@@ -12,6 +12,8 @@ export default function IconDetailPage() {
   const [icon, setIcon] = useState(null);
   const [color, setColor] = useState(null); // null to preserve original
   const [size, setSize] = useState(200);
+  const [relatedIcons, setRelatedIcons] = useState([]);
+
 
 
   const tags = [
@@ -38,6 +40,24 @@ export default function IconDetailPage() {
 
     fetchIcon();
   }, [id]);
+
+  useEffect(() => {
+    const fetchRelatedIcons = async () => {
+      try {
+        const res = await fetch(`https://iconsguru.com/admin/api/related-icons/${id}`);
+        const data = await res.json();
+        console.log("Related fetch icon:", data)
+        setRelatedIcons(data.icons || []);
+      } catch (err) {
+        console.error("Related fetch error:", err);
+      }
+    };
+  
+    if (id) {
+      fetchRelatedIcons();
+    }
+  }, [id]);
+  
 
   const applyColorAndSize = (svgRaw) => {
     let svg = svgRaw;
@@ -175,9 +195,21 @@ export default function IconDetailPage() {
                    </div>
 
                    <div className="styles-icons-div comon-rows d-block w-100">
-                          <h4 className="sub-titels-h1"> Related Icons with the same style </h4>
-                          
+                      <h4 className="sub-titels-h1">Related Icons with the same style</h4>
+                      <div className="row">
+                        {relatedIcons.map((icon) => (
+                          <div key={icon.id} className="col-3 mb-3">
+                            <Link href={`/icon/${icon.id}`}>
+                              <div
+                                className="border p-2 rounded"
+                                dangerouslySetInnerHTML={{ __html: applyColorAndSize(icon.icon_svg) }}
+                              />
+                            </Link>
+                          </div>
+                        ))}
                       </div>
+                    </div>
+
 
                       <div className="styles-icons-div comon-rows d-block w-100 mb-5 pb-5">
                           <h4 className="sub-titels-h1"> Related Tags </h4>
