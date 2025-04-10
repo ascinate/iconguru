@@ -42,7 +42,7 @@ export default function Home() {
   }, []);
 
   const staticImages = [
-    '/interface.svg',
+    '/arrow-th.svg',
     '/design-th1.svg',
     '/food-th.svg',
     '/social.svg',

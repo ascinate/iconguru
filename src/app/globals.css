@@ -1141,6 +1141,65 @@ footer hr{
 .p-autocomplete-panel{
 
 }
+.cm-o{
+  position: absolute;
+}
+.cmon-ic2{
+  right: 0;
+
+}
+.cmon-ic3 {
+  right: 150px;
+  top: -70px;
+}
+.cmon-ic3 img{
+  width: 80%;
+}
+.cmon-ic5{
+  top: -60px;
+  left: 60px;
+}
+.cmon-ic1{
+  right: 0;
+  bottom: 0;
+}
+.cmon-ic4{
+  bottom: 0;
+  left: 20px;
+}
+.sub-banners{
+  background: #f3f3f3;
+  border-radius: 7px;
+  margin-top: -30px;
+}
+.sub-banners .container{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #f3f3f3;
+  border-radius: 7px;
+}
+.sub-banners h2{
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--head-color);
+}
+.home01-links svg{
+  width: 25px;
+  height: 25px;
+  transition: all 0.5s;
+}
+.home01-links:hover svg{
+  fill: var(--primaycolor) !important;
+}
+.home01-links:hover:focus{
+  box-shadow: none !important;
+}
+.details-coderyt{
+  margin-bottom: 150px;
+}
+.options_names{
+  list-style-type: none;
+}
 @media (width >= 1200px) {
   .comon-rows .row > div.col {
       flex: none;
