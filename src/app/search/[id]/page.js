@@ -198,11 +198,11 @@ export default function IconDetailPage() {
                       <h4 className="sub-titels-h1">Related Icons with the same style</h4>
                       <div className="row">
                         {relatedIcons.map((icon) => (
-                          <div key={icon.id} className="col-3 mb-3">
-                            <Link href={`/icon/${icon.id}`}>
+                          <div key={icon.Id} className="col-3 mb-3">
+                            <Link href={`/search/${icon.Id}`}>
                               <div
                                 className="border p-2 rounded"
-                                dangerouslySetInnerHTML={{ __html: applyColorAndSize(icon.icon_svg) }}
+                                dangerouslySetInnerHTML={{ __html: icon.icon_svg }}
                               />
                             </Link>
                           </div>
