@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import Head from "next/head";
 import NavicationHome from "../components/NavicationHome";
 import { useEffect, useState } from "react";
