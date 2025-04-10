@@ -1,14 +1,15 @@
 'use client';
 import Link from "next/link";
-import { useState } from 'react';
 import { AutoComplete } from 'primereact/autocomplete';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from "react";
 
 
 
 function BannerHome() {
   const [value, setValue] = useState('');
   const [items, setItems] = useState([]);
+  const [totalIcons, setTotalIcons] = useState(0);
   const router = useRouter();
 
   const search = async (event) => {
@@ -26,6 +27,20 @@ function BannerHome() {
     }
   };
 
+  useEffect(() => {
+    const fetchIconCount = async () => {
+      try {
+        const res = await fetch('https://iconsguru.com/admin/api/icons/total-count');
+        const data = await res.json();
+        setTotalIcons(data.total);
+      } catch (err) {
+        console.error("Count fetch error:", err);
+      }
+    };
+  
+    fetchIconCount();
+  }, []);
+
   const handleSearchClick = () => {
     if (value.trim()) {
       router.push(`/search?search=${encodeURIComponent(value.trim())}`);
@@ -37,7 +52,7 @@ function BannerHome() {
 
      <section className="float-start w-100 banner-parts01 d-grid align-content-center">
      <div className="container">
-         <h5 className="text-center sub-headings"> 320,541 FREE ICONS </h5>
+         <h5 className="text-center sub-headings"> {totalIcons.toLocaleString()} FREE ICONS </h5>
          <h2 className="text-center">We Deliver the World’s Best Icons</h2>
          <p className="text-center text-para1"> Download the perfection and largest unique icons drawn by hand. </p>
          <div className="search-sections-home col-lg-8 mx-auto d-flex justify-content-between align-items-center bg-white">
