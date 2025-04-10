@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 import styles from "./page.module.css";
 import CategorySlider from "./components/CategorySlider";
@@ -5,25 +6,77 @@ import NavicationHome from "./components/NavicationHome";
 import BannerHome from "./components/BannerHome";
 import Link from "next/link";
 import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const icontypes = [
-    { id: 1, title: 'Interface Essential' , counting: '200', tag:"", img: '/interface.svg', link: '/icons'  },
-    { id: 2, title: 'Design' , counting: '100', tag:"New", img: '/design-th1.svg', link: '/icons'  },
-    { id: 3, title: 'Food' , counting: '300', tag:"", img: '/food-th.svg', link: '/icons'  },
-    { id: 4, title: 'Social' , counting: '2000', tag:"", img: '/social.svg', link: '/icons'  },
-    { id: 5, title: 'Business' , counting: '1000', tag:"", img: '/business.svg', link: '/icons'  },
-    { id: 6, title: 'Shopping' , counting: '1000', tag:"", img: '/shopping1.svg', link: '/icons'  },
+
+  const staticImages1 = [
+    '/tine1.svg',
+    '/solid1.svg',
+    '/regulari.svg',
+    '/colori.svg',
+  
   ];
 
-  const categorytypes = [
-    { id: 1, title: 'Thin' , counting: '200', tag:"", img: '/tine1.svg', link: '/icons'  },
-    { id: 2, title: 'Solid' , counting: '100', tag:"New", img: '/solid1.svg', link: '/icons'  },
-    { id: 3, title: 'Regular' , counting: '300', tag:"", img: '/regulari.svg', link: '/icons'  },
-    { id: 4, title: 'Color' , counting: '2000', tag:"", img: '/colori.svg', link: '/icons'  },
-    { id: 5, title: 'Bold' , counting: '1000', tag:"", img: '/boldi.svg', link: '/icons'  },
-    { id: 6, title: 'Animation' , counting: '1000', tag:"", img: '/animated1.svg', link: '/icons'  },
+  const [categorytypes, setCategoryTypes1] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories1 = async () => {
+      try {
+        const res = await fetch("https://iconsguru.com/admin/api/icon-types");
+        const json = await res.json();
+        if (json.status && Array.isArray(json.data)) {
+          const updatedData = json.data.map((item, index) => ({
+            ...item,
+            img: staticImages1[index] || '/default.svg',
+            link: '/icons'
+          }));
+          setCategoryTypes1(updatedData);
+        }
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+
+    fetchCategories1();
+  }, []);
+
+  const staticImages = [
+    '/interface.svg',
+    '/design-th1.svg',
+    '/food-th.svg',
+    '/social.svg',
+    '/business.svg',
+    '/shopping1.svg',
+    '/animated1.svg',
+    '/business.svg',
+    '/colori.svg'
   ];
+
+  const [icontypes, setCategoryTypes] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("https://iconsguru.com/admin/api/icon-categories");
+        const json = await res.json();
+        if (json.status && Array.isArray(json.data)) {
+          const updatedData = json.data.map((item, index) => ({
+            ...item,
+            img: staticImages[index] || '/default.svg',
+            link: '/icons'
+          }));
+          setCategoryTypes(updatedData);
+        }
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  
   
   return (
     <>
@@ -74,12 +127,12 @@ export default function Home() {
                                   <span className="d-flex icon-list-name col-lg-10 mx-auto align-items-center justify-content-between">
                                       <h5 className="mb-0"> 
                                         <Link href={type.link}> 
-                                          {type.title}
+                                        {type.icon_category.trim()}
                                         </Link>
                                       </h5>
                                       <Link className="coun-text" href={type.link}> 
                                           
-                                       <strong> {type.counting}</strong> icons
+                                       <strong> {type.count}</strong> icons
                                       </Link>
                                       
                                   </span>
@@ -162,7 +215,7 @@ export default function Home() {
                                 <article className="d-inline-block w-100 sp-left-paddings comon-types01 position-relative">
                                   <h5 className="mb-0 titels-ts"> 
                                         <Link href={type.link}> 
-                                          {type.title}
+                                          {type.type}
                                         </Link>
                                   </h5>
                                   <figure className="text-center mx-auto d-block mb-1">

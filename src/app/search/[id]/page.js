@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import NavicationHome from "@/app/components/NavicationHome";
+import Footer from "@/app/components/Footer";
+import Link from "next/link";
 
 export default function IconDetailPage() {
   const params = useParams();
@@ -9,6 +12,16 @@ export default function IconDetailPage() {
   const [icon, setIcon] = useState(null);
   const [color, setColor] = useState(null); // null to preserve original
   const [size, setSize] = useState(200);
+
+
+  const tags = [
+    { id: 1, title: 'Shopping Bag' , link: '/'  },
+    { id: 2, title: 'Shopping' , link: '/'  },
+    { id: 3, title: 'Online Bag', link: '/',},
+    { id: 4, title: 'Shopper' , link: '/' },
+    { id: 5, title: 'Activity' , link: '/' },
+    { id: 6, title: 'Commerce' , link: '/' },
+  ];
 
   useEffect(() => {
     if (!id) return;
@@ -87,63 +100,104 @@ export default function IconDetailPage() {
   const renderedSvg = applyColorAndSize(icon.icon_svg);
 
   return (
-    <div className="container mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-6">{icon.icon_name}</h1>
+    <>
+       <NavicationHome/>
+        <main className="details-body-parts float-start w-100">
+            <div className="container">
+              <aside className="bercrums">
+                    <nav aria-label="breadcrumb">
+                      <ol className="breadcrumb">
+                        <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+                        <li className="breadcrumb-item"> <Link href="/"> Interface Essential </Link> </li>
+                        <li className="breadcrumb-item active" aria-current="page">{icon.icon_name}</li>
+                      </ol>
+                    </nav>
+                    <h2 className="icon-headings">{icon.icon_name}</h2>
+               </aside>
+               <div className="top-sections01 mt-4  details-coderyt">
+                   <div className="row">
+                       <div className="col-lg-6 position-relative p-0">
+                            <div className="blox-icons-div01">
+                                  <div
+                                    className="d-table mx-auto"
+                                    style={{ width: size, height: size }}
+                                    dangerouslySetInnerHTML={{ __html: renderedSvg }}
+                                  />
 
-      <div className="flex flex-col md:flex-row items-start gap-10">
-        <div>
-          <div
-            className="border p-2 rounded shadow inline-block"
-            style={{ width: size, height: size }}
-            dangerouslySetInnerHTML={{ __html: renderedSvg }}
-          />
-        </div>
+                                  <div className="icn-list05">
+                                          <input
+                                            type="color"
+                                            value={color || "#000000"}
+                                            onChange={(e) => setColor(e.target.value)}
+                                            className="form-control form-control-color"
+                                          />
+                                 </div>
 
-        <div className="space-y-4">
-          <div>
-            <label className="block font-medium mb-1">Choose Color:</label>
-            <input
-              type="color"
-              value={color || "#000000"}
-              onChange={(e) => setColor(e.target.value)}
-              className="w-16 h-10 p-1 border rounded"
-            />
-          </div>
+                            </div>
+                       </div>
+                       <div className="col-lg-6 d-grid justify-content-end">
+                              <div className="right-details-lis01">
+                                  <div className="groups-list-btn">
+                                      <div className="comon-groups-div01 d-flex align-items-center justify-content-between">
+                                           <h5 className="m-0"> Size : </h5>
+                                           <div className="input-divs d-flex align-items-center">
+                                              <select id="size" className="form-select" value={size} onChange={(e) => setSize(Number(e.target.value))}>
+                                                  <option value="">-- Select a Size --</option>
+                                                  <option value="12">12px</option>
+                                                  <option value="16">16px</option>
+                                                  <option value="18">18px</option>
+                                                  <option value="24">24px</option>
+                                                  <option value="32">32px</option>
+                                                  <option value="36">36px</option>
+                                                  <option value="48">48px</option>
+                                                  <option value="64">64px</option>
+                                                  <option value="72">72px</option>
+                                                  <option value="96">96px</option>
+                                                  <option value="120">120px</option>
+                                                  <option value="240">240px</option>
+                                              </select>
+                                           </div>
+                                      </div>
+                                      <div className="comon-groups-div01 d-flex align-items-center justify-content-between">
+                                           <h5 className="m-0"> Download : </h5>
+                                           <div className="input-divs d-flex justify-content-between align-items-center">
+                                               <button type="button" onClick={() => svgToCanvasDownload("png")} className="btn btn-comons01 crm-btn01"> SVG </button>
+                                               <button type="button" onClick={() => svgToCanvasDownload("webp")} className="btn btn-comons01 crm-btn01"> PNG </button>
+                                               <button type="button"  onClick={handleDownloadSVG} className="btn btn-comons01 crm-btn01"> WEBP </button>
+                                           </div>
+                                      </div>
 
-          <div>
-            <label className="block font-medium mb-1">Size (px):</label>
-            <input
-              type="number"
-              value={size}
-              onChange={(e) => setSize(Number(e.target.value))}
-              min={10}
-              max={1024}
-              className="w-24 p-2 border rounded"
-            />
-          </div>
+                                      <h5 className="list-texr style-list mt-5"> <strong> Style : </strong> Phoenix Group Basic Outline <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="rgba(0,0,0,1)"><path d="M5 2H19C19.5523 2 20 2.44772 20 3V22.1433C20 22.4194 19.7761 22.6434 19.5 22.6434C19.4061 22.6434 19.314 22.6168 19.2344 22.5669L12 18.0313L4.76559 22.5669C4.53163 22.7136 4.22306 22.6429 4.07637 22.4089C4.02647 22.3293 4 22.2373 4 22.1433V3C4 2.44772 4.44772 2 5 2ZM18 4H6V19.4324L12 15.6707L18 19.4324V4Z"></path></svg> </h5>
 
-          <div className="space-x-2 mt-4">
-            <button
-              onClick={() => svgToCanvasDownload("png")}
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-            >
-              Download PNG
-            </button>
-            <button
-              onClick={() => svgToCanvasDownload("webp")}
-              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-            >
-              Download WebP
-            </button>
-            <button
-              onClick={handleDownloadSVG}
-              className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900"
-            >
-              Download SVG
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+                                  </div>
+                              </div>
+                       </div>
+                   </div>
+
+                   <div className="styles-icons-div comon-rows d-block w-100">
+                          <h4 className="sub-titels-h1"> Related Icons with the same style </h4>
+                          
+                      </div>
+
+                      <div className="styles-icons-div comon-rows d-block w-100 mb-5 pb-5">
+                          <h4 className="sub-titels-h1"> Related Tags </h4>
+                          <ul className="crm-tagsd d-flex align-items-center flex-wrap m-0 p-0">
+                            {tags.map((page) => (
+                                <li key={page.id}>
+                                  <Link className="btn" href={page.link}> {page.title} </Link>
+                                </li>
+                             ))}
+                          </ul>
+                      </div>
+
+               </div>
+              
+            </div>
+              
+        </main>
+       <Footer/>
+       
+    </>
+   
   );
 }
