@@ -64,10 +64,7 @@ export default function Home() {
           const updatedData = json.data.map((item, index) => ({
             ...item,
             img: staticImages[index] || '/default.svg',
-            link: {
-              pathname: "/search",
-              query: { categories: [item.icon_category] }
-            }
+            link: `/cat/${encodeURIComponent(item.icon_category.toLowerCase())}`
           }));
           setCategoryTypes(updatedData);
         }
