@@ -8,15 +8,41 @@ import Link from "next/link";
 import Form from "next/form";
 
 export default function Icons() {
-  const icontypes = [
-    { id: 1, title: 'Interface Essential' , counting: '200', tag:"", img: '/interface.svg', link: '/icons'  },
-    { id: 2, title: 'Design' , counting: '100', tag:"New", img: '/design-th1.svg', link: '/icons'  },
-    { id: 3, title: 'Food' , counting: '300', tag:"", img: '/food-th.svg', link: '/icons'  },
-    { id: 4, title: 'Social' , counting: '2000', tag:"", img: '/social.svg', link: '/icons'  },
-    { id: 5, title: 'Business' , counting: '1000', tag:"", img: '/business.svg', link: '/icons'  },
-    { id: 6, title: 'Shopping' , counting: '1000', tag:"", img: '/shopping1.svg', link: '/icons'  },
-    { id: 8, title: 'Shopping' , counting: '1000', tag:"", img: '/shopping1.svg', link: '/icons'  },
+
+
+  const staticImages = [
+    '/interface.svg',
+    '/design-th1.svg',
+    '/food-th.svg',
+    '/social.svg',
+    '/business.svg',
+    '/shopping1.svg',
+    '/shopping1.svg'
   ];
+
+  const [icontypes, setCategoryTypes] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("https://iconsguru.com/admin/api/icon-categories");
+        const json = await res.json();
+        if (json.status && Array.isArray(json.data)) {
+          const updatedData = json.data.map((item, index) => ({
+            ...item,
+            img: staticImages[index] || '/default.svg',
+            link: `/cat/${encodeURIComponent(item.icon_category.toLowerCase())}`
+          }));
+          setCategoryTypes(updatedData);
+        }
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
 
   return (
     <>
@@ -56,12 +82,12 @@ export default function Icons() {
                                         <span className="d-flex icon-list-name col-lg-10 mx-auto align-items-center justify-content-between">
                                             <h5 className="mb-0"> 
                                               <Link href={type.link}> 
-                                                {type.title}
+                                              {type.icon_category.trim()}
                                               </Link>
                                             </h5>
                                             <Link className="coun-text" href={type.link}> 
                                                 
-                                              <strong> {type.counting}</strong> icons
+                                              <strong> {type.count}</strong> icons
                                             </Link>
                                             
                                         </span>

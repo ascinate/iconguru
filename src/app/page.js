@@ -64,7 +64,7 @@ export default function Home() {
           const updatedData = json.data.map((item, index) => ({
             ...item,
             img: staticImages[index] || '/default.svg',
-            link: `/cat/${encodeURIComponent(item.icon_category.toLowerCase())}`
+            link: '/icons'
           }));
           setCategoryTypes(updatedData);
         }
