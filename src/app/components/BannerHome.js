@@ -12,20 +12,41 @@ function BannerHome() {
   const [totalIcons, setTotalIcons] = useState(0);
   const router = useRouter();
 
-  const search = async (event) => {
-    const query = event.query;
-
-    if (query.length > 1) {
+  let abortController = null;
+  let debounceTimeout = null;
+  let lastQuery = "";
+  
+  const search = (event) => {
+    const query = event.query.trim();
+  
+    if (query.length <= 1 || query === lastQuery) return;
+    lastQuery = query;
+  
+    if (abortController) {
+      abortController.abort(); // cancel previous fetch
+    }
+  
+    clearTimeout(debounceTimeout);
+  
+    debounceTimeout = setTimeout(async () => {
+      abortController = new AbortController();
+  
       try {
-        const res = await fetch(`https://iconsguru.com/admin/api/icons/search?query=${encodeURIComponent(query)}`);
+        const res = await fetch(
+          `https://iconsguru.com/admin/api/icons/search?query=${encodeURIComponent(query)}`,
+          { signal: abortController.signal }
+        );
         const data = await res.json();
         const names = data.data.map(icon => icon.icon_name);
         setItems(names);
       } catch (err) {
-        console.error('Autocomplete fetch error:', err);
+        if (err.name !== 'AbortError') {
+          console.error('Autocomplete fetch error:', err);
+        }
       }
-    }
+    }, 250); // adjust debounce delay as needed
   };
+  
 
   useEffect(() => {
     const fetchIconCount = async () => {
