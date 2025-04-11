@@ -106,6 +106,7 @@ a {
   color: #424242 !important;
   font-size: 18px;
 }
+
 .tabsd_divs .nav-tabs .nav-item.show .nav-link, 
 .tabsd_divs .nav-tabs .nav-link.active{
   color: var(--tabs-active-color) !important;

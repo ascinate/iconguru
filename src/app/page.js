@@ -63,8 +63,8 @@ export default function Home() {
         if (json.status && Array.isArray(json.data)) {
           const updatedData = json.data.map((item, index) => ({
             ...item,
-            img: staticImages[index] || '/default.svg',
-            link: '/icons'
+            img: staticImages[index] || '/default.svg'
+          
           }));
           setCategoryTypes(updatedData);
         }
@@ -119,7 +119,9 @@ export default function Home() {
                                 <article className="d-inline-block w-100 comon-types01 position-relative">
                                 <span className="tagsd">{type.tag}</span>
                                   <figure className="text-center mx-auto d-block mb-1">
-                                    <Link href={type.link}> <Image loading="lazy" src={type.img}
+                                    <Link href={{pathname: '/search',
+                                      query: { categories: type.icon_category.trim() }
+                                       }}> <Image loading="lazy" src={type.img}
                                           alt="user"
                                           width={260}
                                           height={178} /> </Link>
@@ -130,7 +132,9 @@ export default function Home() {
                                         {type.icon_category.trim()}
                                         </Link>
                                       </h5>
-                                      <Link className="coun-text" href={type.link}> 
+                                      <Link className="coun-text" href={{pathname: '/search',
+                                      query: { categories: type.icon_category.trim() }
+                                       }}> 
                                           
                                        <strong> {type.count}</strong> icons
                                       </Link>

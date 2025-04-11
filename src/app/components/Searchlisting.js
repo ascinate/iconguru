@@ -13,12 +13,14 @@ import { useSearchParams } from "next/navigation";
 export default function Searchlisting() {
   const searchParams = useSearchParams();
 const searchKeyword = searchParams.get("search");
+const categoryFromQuery = searchParams.getAll("categories");
+
 
   const [icons, setIcons] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [filters, setFilters] = useState({ categories: [], colors: [], types: [] });
+  const [filters, setFilters] = useState({ categories: categoryFromQuery, colors: [], types: [] });
   const [totalIcons, setTotalIcons] = useState(0);
   
 
