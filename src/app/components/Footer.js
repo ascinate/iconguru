@@ -111,7 +111,7 @@ function Footer(){
                         </li>
                       </ul>
                    </div>
-                   <div className="col d-grid justify-content-lg-end"> <p className="text-white copy-text1 copt-lisk"> &copy; 2025 iconguru.inc | All Rights Reserved </p> </div>
+                   <div className="col d-grid justify-content-lg-end"> <p className="text-white copy-text1 copt-lisk"> &copy; {new Date().getFullYear()} iconsguru.com | All Rights Reserved </p> </div>
                 </div>
             </div>
         </footer>
