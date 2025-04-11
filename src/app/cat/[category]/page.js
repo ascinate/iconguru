@@ -1,21 +1,15 @@
 'use client';
-import Head from "next/head";
-import NavicationHome from "../components/NavicationHome";
-import { useEffect, useState } from "react";
-import SidebarFilter from "../components/SidebarFilter";
-import Footer from "../components/Footer";
-import Link from "next/link";
-import Image from "next/image";
-import { Suspense } from 'react';
-import { useSearchParams } from "next/navigation";
-import CategoryListing from "../components/CategoryListing";
 
+import { useParams } from 'next/navigation';
 
+export default function CategorySearchPage() {
+  const params = useParams();
+  const category = params.category;
 
-export default function Page() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <CategoryListing />
-    </Suspense>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">Icons for category: {category}</h1>
+      {/* Add your icon list logic here */}
+    </div>
   );
 }
