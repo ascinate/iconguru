@@ -17,7 +17,9 @@ export default function Icons() {
     '/social.svg',
     '/business.svg',
     '/shopping1.svg',
-    '/shopping1.svg'
+    '/shopping1.svg',
+    '/business.svg',
+    '/colori.svg'
   ];
 
   const [icontypes, setCategoryTypes] = useState([]);
@@ -124,12 +126,12 @@ export default function Icons() {
                                         <span className="d-flex icon-list-name col-lg-10 mx-auto align-items-center justify-content-between">
                                             <h5 className="mb-0"> 
                                               <Link href={type.link}> 
-                                                {type.title}
+                                              {type.icon_category.trim()}
                                               </Link>
                                             </h5>
                                             <Link className="coun-text" href={type.link}> 
                                                 
-                                              <strong> {type.counting}</strong> icons
+                                              <strong> {type.count}</strong> icons
                                             </Link>
                                             
                                         </span>
