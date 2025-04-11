@@ -1224,3 +1224,6 @@ footer hr{
       width: 13.6667%;
   }
 }
+.p-autocomplete .p-autocomplete-loader {
+  display: none !important;
+}
