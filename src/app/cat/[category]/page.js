@@ -1,10 +1,11 @@
 'use client';
 
 import Head from "next/head";
-import NavicationHome from "../../NavicationHome";
+import NavicationHome from "@/app/components/NavicationHome";
+import Footer from "@/app/components/Footer";
 import { useEffect, useState } from "react";
-import SidebarFilter from "../../SidebarFilter";
-import Footer from "../../Footer";
+import SidebarFilter from "@/app/components/SidebarFilter";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useParams } from 'next/navigation';
