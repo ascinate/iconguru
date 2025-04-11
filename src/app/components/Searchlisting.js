@@ -12,28 +12,16 @@ import { useSearchParams } from "next/navigation";
 
 export default function Searchlisting() {
   const searchParams = useSearchParams();
+const searchKeyword = searchParams.get("search");
+
   const [icons, setIcons] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [totalIcons, setTotalIcons] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [filters, setFilters] = useState({ categories: [], colors: [], types: [] });
-  const [searchKeyword, setSearchKeyword] = useState("");
+  const [totalIcons, setTotalIcons] = useState(0);
+  
 
-  // ✅ On initial mount, read from query string
-  useEffect(() => {
-    const categoryFromQuery = searchParams.getAll("categories");
-    const search = searchParams.get("search") || "";
-
-    setFilters((prev) => ({
-      ...prev,
-      categories: categoryFromQuery,
-    }));
-    setSearchKeyword(search);
-    setPage(1); // Reset page to 1 when query changes
-  }, [searchParams]);
-
-  // ✅ Fetch icons after filters/search/page are set
   useEffect(() => {
     const fetchIcons = async () => {
       setIsLoading(true);
@@ -41,19 +29,18 @@ export default function Searchlisting() {
         const query = new URLSearchParams();
         query.append("page", page);
         query.append("limit", 20);
-
-        if (filters.categories.length)
-          filters.categories.forEach((c) => query.append("categories[]", c));
-        if (filters.colors.length)
-          filters.colors.forEach((c) => query.append("colors[]", c));
-        if (filters.types.length)
-          filters.types.forEach((t) => query.append("types[]", t));
+  
+        if (filters.categories.length) filters.categories.forEach(c => query.append("categories[]", c));
+        if (filters.colors.length) filters.colors.forEach(c => query.append("colors[]", c));
+        if (filters.types.length) filters.types.forEach(t => query.append("types[]", t));
+  
         if (searchKeyword) query.append("search", searchKeyword);
-
+  
         const finalURL = `https://iconsguru.com/admin/api/icons?${query.toString()}`;
+         
         const response = await fetch(finalURL);
         const data = await response.json();
-
+  
         if (data?.icons?.data && Array.isArray(data.icons.data)) {
           setIcons(data.icons.data);
           setTotalPages(data.icons.last_page || 1);
@@ -69,7 +56,7 @@ export default function Searchlisting() {
         setIsLoading(false);
       }
     };
-
+  
     fetchIcons();
   }, [page, filters, searchKeyword]);
   
