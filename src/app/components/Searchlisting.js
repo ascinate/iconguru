@@ -110,16 +110,6 @@ const searchKeyword = searchParams.get("search");
                         Icons
                       </button>
                     </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" data-bs-toggle="tab" data-bs-target="#interface" type="button" role="tab" aria-controls="interface" aria-selected="false">
-                        Interface Icons
-                      </button>
-                    </li>
-                    <li className="nav-item" role="presentation">
-                      <button className="nav-link" data-bs-toggle="tab" data-bs-target="#animated" type="button" role="tab" aria-controls="animated" aria-selected="false">
-                        Animated Icons
-                      </button>
-                    </li>
                   </ul>
 
                   <div className="tab-content" id="myTabContent">

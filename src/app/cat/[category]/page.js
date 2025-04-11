@@ -76,7 +76,7 @@ export default function CategorySearchPage() {
   setFilters((prev) => ({
     ...prev,
     ...newFilters,
-    categories: newFilters.categories.length > 0 ? newFilters.categories : [category], // Fallback to URL category
+    categories: newFilters.categories.length > 0 ? newFilters.categories : [category],
   }));
 }} />
             </div>
