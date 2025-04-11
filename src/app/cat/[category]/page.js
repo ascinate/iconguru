@@ -72,7 +72,13 @@ export default function CategorySearchPage() {
         <div className="container">
           <div className="row">
             <div className="col-lg-3">
-              <SidebarFilter onFilterChange={setFilters} />
+            <SidebarFilter onFilterChange={(newFilters) => {
+  setFilters((prev) => ({
+    ...prev,
+    ...newFilters,
+    categories: newFilters.categories.length > 0 ? newFilters.categories : [category], // Fallback to URL category
+  }));
+}} />
             </div>
             <div className="col-lg-9 ps-lg-4">
               <div className="main-divs g-col-6">
