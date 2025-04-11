@@ -62,8 +62,8 @@ function BannerHome() {
         suggestions={items}
         completeMethod={search}
         onChange={(e) => setValue(e.value)}
-        loading={false}
         className="form-control w-full"
+        loading={false}
         />
          <button className="btn btn-search" onClick={handleSearchClick}>
             Search{" "}
