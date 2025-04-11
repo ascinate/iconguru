@@ -28,8 +28,8 @@ export default function Home() {
         if (json.status && Array.isArray(json.data)) {
           const updatedData = json.data.map((item, index) => ({
             ...item,
-            img: staticImages1[index] || '/default.svg',
-            link: '/icons'
+            img: staticImages1[index] || '/default.svg'
+           
           }));
           setCategoryTypes1(updatedData);
         }
